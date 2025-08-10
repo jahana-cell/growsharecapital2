@@ -29,6 +29,21 @@
                 height: 400px;
             }
         }
+        /* Styles for the animated dropdown calculator */
+        .calculator-dropdown {
+            height: 0;
+            opacity: 0;
+            overflow: hidden;
+            transition: all 0.5s ease-in-out;
+            transform: translateY(-10px);
+        }
+        .calculator-dropdown.open {
+            height: 120px; /* Adjust height as needed */
+            opacity: 1;
+            transform: translateY(0);
+            padding-top: 1rem;
+            padding-bottom: 1rem;
+        }
     </style>
 </head>
 <body class="antialiased">
@@ -45,12 +60,27 @@
                 <p class="text-lg text-[#004346] mb-6">GrowShare Capital LLC invites faith-driven and community-minded investors to join its Shariah-compliant Halal Livestock Program. This offering supports the ethical rearing of over 50 goats and sheep, raised under Zabiha Halal standards and sustainable local farming practices.</p>
                 <div class="grid grid-cols-1 md:grid-cols-2 gap-6 text-2xl">
                     <div class="bg-[#D7263D] p-4 rounded-lg">
-                        <span class="font-bold text-white">2-Year</span>
+                        <span class="font-bold text-white"><span class="count-up" data-target="2">0</span>-Year</span>
                         <span class="text-white">Investment Term</span>
                     </div>
-                    <div class="bg-[#F9A03F] p-4 rounded-lg">
-                        <span class="font-bold text-white">$1,000</span>
-                        <span class="text-white">Minimum Share</span>
+                    <div>
+                        <div id="calculator-trigger" class="bg-[#F9A03F] p-4 rounded-lg cursor-pointer hover:bg-opacity-90 transition-colors">
+                            <span class="font-bold text-white">$<span class="count-up" data-target="1000">0</span></span>
+                            <span class="text-white">Minimum Share</span>
+                            <div class="text-xs text-white mt-1">(Click to Calculate)</div>
+                        </div>
+                        <div id="dropdown-calculator" class="calculator-dropdown bg-gray-100 rounded-b-lg">
+                            <div class="flex flex-col items-center justify-center gap-2 px-4">
+                                <div class="flex items-center">
+                                    <label for="shares" class="font-semibold text-base text-[#004346]">Shares:</label>
+                                    <input type="number" id="shares" value="1" min="1" class="w-16 text-center font-bold text-base border-2 border-[#F9A03F] rounded-lg p-1 mx-2">
+                                </div>
+                                <div class="text-sm text-left text-[#004346]">
+                                    <p><strong>Investment:</strong> <span id="totalInvestment" class="font-bold">$1,000</span></p>
+                                    <p><strong>Annual Return:</strong> <span id="livestockReturn" class="font-bold">2 Goats/Sheep</span></p>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -155,110 +185,90 @@
     </div>
 
     <script>
-        function wrapLabel(str, maxWidth) {
-            if (str.length <= maxWidth) {
-                return str;
-            }
-            const words = str.split(' ');
-            let lines = [];
-            let currentLine = '';
-            for (const word of words) {
-                if ((currentLine + word).length > maxWidth && currentLine.length > 0) {
-                    lines.push(currentLine.trim());
-                    currentLine = '';
+        document.addEventListener('DOMContentLoaded', () => {
+            // --- CHART.JS CODE ---
+            function wrapLabel(str, maxWidth) {
+                if (str.length <= maxWidth) return str;
+                const words = str.split(' '), lines = []; let currentLine = '';
+                for (const word of words) {
+                    if ((currentLine + word).length > maxWidth && currentLine.length > 0) {
+                        lines.push(currentLine.trim()); currentLine = '';
+                    }
+                    currentLine += word + ' ';
                 }
-                currentLine += word + ' ';
+                lines.push(currentLine.trim());
+                return lines;
             }
-            lines.push(currentLine.trim());
-            return lines;
-        }
-
-        const rawLabels = [
-            'Livestock Acquisition',
-            'Feed & Care',
-            'Shelter & Infrastructure',
-            'Staff & Operations',
-            'Contingency & Medical Care'
-        ];
-
-        const processedLabels = rawLabels.map(label => wrapLabel(label, 16));
-
-        const ctx = document.getElementById('allocationChart').getContext('2d');
-        const allocationChart = new Chart(ctx, {
-            type: 'bar',
-            data: {
-                labels: processedLabels,
-                datasets: [
-                    {
+            const rawLabels = ['Livestock Acquisition', 'Feed & Care', 'Shelter & Infrastructure', 'Staff & Operations', 'Contingency & Medical Care'];
+            const processedLabels = rawLabels.map(label => wrapLabel(label, 16));
+            const ctx = document.getElementById('allocationChart').getContext('2d');
+            new Chart(ctx, {
+                type: 'bar',
+                data: {
+                    labels: processedLabels,
+                    datasets: [{
                         label: 'Allocation per $1,000 Share',
                         data: [400, 250, 150, 100, 100],
-                        backgroundColor: [
-                            '#1D4341',
-                            '#F2A133',
-                            '#C22B29',
-                            '#678B88',
-                            '#F9E076'
-                        ],
-                        borderColor: '#FFFFFF',
-                        borderWidth: 1
-                    }
-                ]
-            },
-            options: {
-                responsive: true,
-                maintainAspectRatio: false,
-                scales: {
-                    x: {
-                        grid: {
-                            display: false
-                        }
-                    },
-                    y: {
-                        beginAtZero: true,
-                        ticks: {
-                            color: '#004346',
-                            callback: function(value, index, values) {
-                                return '$' + value;
-                            }
-                        }
-                    }
+                        backgroundColor: ['#1D4341', '#F2A133', '#C22B29', '#678B88', '#F9E076'],
+                        borderColor: '#FFFFFF', borderWidth: 1
+                    }]
                 },
-                plugins: {
-                    legend: {
-                        display: false
-                    },
-                    tooltip: {
-                        callbacks: {
-                            title: function(tooltipItems) {
-                                const item = tooltipItems[0];
-                                let label = item.chart.data.labels[item.dataIndex];
-                                if (Array.isArray(label)) {
-                                  return label.join(' ');
-                                } else {
-                                  return label;
-                                }
+                options: {
+                    responsive: true, maintainAspectRatio: false,
+                    scales: { x: { grid: { display: false } }, y: { beginAtZero: true, ticks: { color: '#004346', callback: (value) => '$' + value } } },
+                    plugins: {
+                        legend: { display: false },
+                        tooltip: {
+                            callbacks: {
+                                title: (tooltipItems) => { let label = tooltipItems[0].chart.data.labels[tooltipItems[0].dataIndex]; return Array.isArray(label) ? label.join(' ') : label; },
+                                label: (context) => new Intl.NumberFormat('en-US', { style: 'currency', currency: 'USD' }).format(context.parsed.y)
                             },
-                            label: function(context) {
-                                let label = context.dataset.label || '';
-                                if (label) {
-                                    label += ': ';
-                                }
-                                if (context.parsed.y !== null) {
-                                    const value = new Intl.NumberFormat('en-US', { style: 'currency', currency: 'USD' }).format(context.parsed.y);
-                                    return `${value}`;
-                                }
-                                return label;
-                            }
-                        },
-                        backgroundColor: '#1D4341',
-                        titleFont: { size: 16 },
-                        bodyFont: { size: 14 },
-                        padding: 12,
-                        cornerRadius: 4,
-                        displayColors: false
+                            backgroundColor: '#1D4341', titleFont: { size: 16 }, bodyFont: { size: 14 },
+                            padding: 12, cornerRadius: 4, displayColors: false
+                        }
                     }
                 }
-            }
+            });
+
+            // --- ANIMATED NUMBERS ON SCROLL ---
+            const counters = document.querySelectorAll('.count-up');
+            const animateCountUp = el => {
+                const target = parseInt(el.dataset.target, 10); let current = 0; const duration = 1500;
+                const stepTime = Math.abs(Math.floor(duration / target));
+                const timer = setInterval(() => {
+                    current += 1; el.textContent = current.toLocaleString();
+                    if (current === target) clearInterval(timer);
+                }, stepTime);
+            };
+            const observer = new IntersectionObserver((entries, observer) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        animateCountUp(entry.target); observer.unobserve(entry.target);
+                    }
+                });
+            }, { threshold: 0.5 });
+            counters.forEach(counter => observer.observe(counter));
+
+            // --- DROPDOWN CALCULATOR ---
+            const trigger = document.getElementById('calculator-trigger');
+            const dropdown = document.getElementById('dropdown-calculator');
+            const sharesInput = document.getElementById('shares');
+            const totalInvestmentEl = document.getElementById('totalInvestment');
+            const livestockReturnEl = document.getElementById('livestockReturn');
+
+            trigger.addEventListener('click', () => {
+                dropdown.classList.toggle('open');
+            });
+
+            sharesInput.addEventListener('input', () => {
+                const numShares = parseInt(sharesInput.value) || 0;
+                if (numShares > 0) {
+                    const totalCost = numShares * 1000;
+                    const totalAnimals = numShares * 2;
+                    totalInvestmentEl.textContent = `$${totalCost.toLocaleString()}`;
+                    livestockReturnEl.textContent = `${totalAnimals} Goats/Sheep`;
+                }
+            });
         });
     </script>
 </body>
