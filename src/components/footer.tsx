@@ -2,7 +2,7 @@
 import { Facebook, Instagram, Twitter, Youtube } from "lucide-react";
 import Link from "next/link";
 
-const Footer = () => {
+export const Footer = () => {
   return (
     <footer className="bg-gray-800 text-white py-12">
       <div className="container mx-auto px-4">
@@ -58,5 +58,3 @@ const Footer = () => {
     </footer>
   );
 };
-
-export default Footer;

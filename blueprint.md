@@ -6,16 +6,25 @@ This project is a modern, professional website for GrowShare Capital, a private 
 
 ## Style & Design
 
-- **Typography:** The site uses a combination of serif and sans-serif fonts to create a professional and elegant feel. `Playfair Display` is used for headings, `Montserrat` for body text, and `Pinyon Script` for decorative accents. For the Khalui Farm page, `Cinzel` and `Manrope` are used.
-- **Color Palette:** The primary color scheme is based on cream, truffle-dark, and gold-accent colors, creating a warm and sophisticated look.
-- **Layout:** The layout is clean and modern, with a focus on readability and visual hierarchy. It uses a responsive grid system to ensure a good experience on all devices.
-- **Components:** The UI is built with reusable React components, styled with Tailwind CSS.
+- **Aesthetic:** The entire website has been updated to a "Creamy Luxury" standard. This design language emphasizes a premium, elegant, and modern user experience.
+- **Color Palette:** The primary color scheme is based on a refined palette of creamy off-whites (`#FDFCFB`), deep truffle-dark browns (`#3E3B36`), and sophisticated gold accents (`#D4AF37`), creating a warm, opulent, and high-contrast look.
+- **Typography:** The site uses a combination of serif (`Cinzel`) and sans-serif (`Manrope`) fonts to create a professional and elegant feel, ensuring readability and a strong visual hierarchy.
+- **Layout:** The layout is clean and modern, with generous spacing and a responsive grid system to ensure a flawless experience on all devices, from mobile to desktop.
+- **Components:** The UI is built with reusable React components, styled with Tailwind CSS and ShadCN UI, all customized to align with the luxury aesthetic.
 
 ## Features
 
+- **Header and Navigation:**
+    - A redesigned, sticky header provides consistent navigation.
+    - A full-screen, animated mobile menu ensures a seamless experience on smaller devices.
+    - Navigation links are centrally managed in `src/lib/constants.ts` for consistency.
 - **Home Page:** A visually engaging hero section, an overview of the investment thesis, and sections for philosophy, news (The Journal), partners, and leadership.
 - **News/Journal:** A section to display articles and updates.
-- **Contact Page:** A form for inquiries.
+    - **News Listing Page:** A new page at `/news` displays a filterable and searchable list of all news stories.
+    - **Dynamic Story Pages:** Individual story pages are dynamically generated at `/news/[slug]`, each with a unique hero image, content, and navigation to other stories.
+- **Real Estate Page:** A dedicated page at `/real-estate` that outlines the firm's investment strategy in workforce housing, community-centric retail hubs, and mixed-use properties.
+- **Healthcare Page:** A new page at `/healthcare` that details the firm's focus on investing in high-acuity medical facilities, bridging the rural care gap, and supporting preventative wellness ecosystems.
+- **Contact Page:** A form for inquiries with a modern and clean design.
 - **Static Pages:** About, Leadership, etc.
 - **Agriculture Section:** A page dedicated to the firm's agriculture investments.
   - **Khalui Farm Page:** A detailed page showcasing a specific agricultural project, "Khalui Farm."
@@ -25,8 +34,9 @@ This project is a modern, professional website for GrowShare Capital, a private 
 
 ## Linting and Housekeeping
 
-I have resolved all linting errors, which included:
+I have resolved all linting errors and performed general housekeeping, which included:
 
 -   Replacing `<img>` tags with the `next/image` component for optimized image loading.
 -   Fixing unescaped entities in several components.
--   Moving font loading and global styles to the root layout (`src/app/layout.tsx` and `src/app/globals.css`) for better performance and to resolve a Next.js warning.
+-   Moving font loading and global styles to the root layout (`src/app/layout.tsx` and `src/app/globals.css`) for better performance.
+-   Removed a global CSS rule that was improperly hiding the header and footer.

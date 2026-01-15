@@ -97,7 +97,6 @@
   ::-webkit-scrollbar { width: 4px; }
   ::-webkit-scrollbar-track { background: #F4F4F2; }
   ::-webkit-scrollbar-thumb { background: rgba(20, 31, 20, 0.2); border-radius: 10px; }
-  body > header, body > footer, body > nav { display: none !important; }
 }
 
 @layer components {

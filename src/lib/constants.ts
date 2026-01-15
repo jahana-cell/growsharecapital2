@@ -1,3 +1,6 @@
-export const INVESTMENT_TERMS = {
-  // Define your investment terms here
-};
+export const navLinks = [
+  { href: '/', label: 'Home' },
+  { href: '/about', label: 'About' },
+  { href: '/agriculture', label: 'Agriculture' },
+  { href: '/contact', label: 'Contact' },
+];
