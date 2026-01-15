@@ -90,7 +90,7 @@ export default function AgricultureClientPage() {
              <div>
                 <h2 className="text-[12px] tracking-[0.4em] uppercase text-neutral-400 mb-6">Our Mission</h2>
                 <p className="text-3xl md:text-4xl font-serif leading-tight">
-                  High-yield investments in America's food sovereignty.
+                  High-yield investments in America&apos;s food sovereignty.
                 </p>
              </div>
              <div>

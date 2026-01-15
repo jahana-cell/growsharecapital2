@@ -1,5 +1,6 @@
 'use client';
 
+import Image from 'next/image';
 import { GALLERY_IMAGES, WHATSAPP_LINK } from '../config';
 
 export function Gallery() {
@@ -18,10 +19,12 @@ export function Gallery() {
                 <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
                     {GALLERY_IMAGES.map((img, i) => (
                         <div key={i} className={`relative aspect-[4/5] group overflow-hidden bg-neutral-100 ${i % 2 !== 0 ? 'md:mt-12' : ''}`}>
-                            <img 
+                            <Image 
                                 src={img.src} 
                                 alt={img.alt} 
-                                className="w-full h-full object-cover transition-transform duration-[1500ms] group-hover:scale-105" 
+                                fill
+                                sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
+                                className="object-cover transition-transform duration-[1500ms] group-hover:scale-105" 
                             />
                             <div className="absolute inset-0 bg-[#141F14]/10 group-hover:bg-transparent transition-colors duration-500"></div>
                             <div className="absolute bottom-6 left-6 opacity-80 group-hover:opacity-100 transition-opacity duration-500">

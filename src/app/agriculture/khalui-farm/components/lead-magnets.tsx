@@ -12,7 +12,7 @@ export function LeadMagnets() {
                     <div className="mb-16">
                         <h2 className="font-serif text-3xl md:text-6xl text-[#141F14] mb-6 leading-tight">Seasonal Availability.</h2>
                         <p className="text-neutral-500 font-light max-w-lg mx-auto text-sm md:text-base leading-loose font-sans">
-                            Don't miss out on peak harvest. Download our seasonal guide to plan your menu or family meals.
+                            Don&apos;t miss out on peak harvest. Download our seasonal guide to plan your menu or family meals.
                         </p>
                     </div>
 

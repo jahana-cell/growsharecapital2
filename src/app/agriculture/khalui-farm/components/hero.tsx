@@ -1,6 +1,7 @@
 'use client';
 
 import { motion } from 'framer-motion';
+import Image from 'next/image';
 import { ArrowLeft, Leaf } from 'lucide-react';
 import { HERO_VIDEO_URL, LOGO_URL, LOGO_TEXT } from '../config';
 
@@ -32,10 +33,12 @@ export function Hero() {
                 >
                     {/* Logo Image */}
                     <div className="relative w-16 h-16 md:w-24 md:h-24 shrink-0">
-                        <img 
+                        <Image 
                             src={LOGO_URL} 
                             alt="Khalui Farm Logo" 
-                            className="w-full h-full object-contain mix-blend-multiply filter sepia-[0.3] contrast-125" 
+                            fill
+                            sizes="(max-width: 768px) 64px, 96px"
+                            className="object-contain mix-blend-multiply filter sepia-[0.3] contrast-125" 
                         />
                     </div>
                     

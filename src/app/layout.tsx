@@ -1,5 +1,5 @@
 import type { Metadata, Viewport } from 'next';
-import { Playfair_Display, Montserrat, Pinyon_Script } from 'next/font/google';
+import { Playfair_Display, Montserrat, Pinyon_Script, Cinzel, Manrope } from 'next/font/google';
 import './globals.css';
 import { Header } from '@/components/header';
 import Footer from '@/components/footer';
@@ -20,6 +20,18 @@ const pinyonScript = Pinyon_Script({
   subsets: ['latin'],
   weight: '400',
   variable: '--font-pinyon-script',
+  display: 'swap',
+});
+
+const cinzel = Cinzel({
+  subsets: ['latin'],
+  variable: '--font-cinzel',
+  display: 'swap',
+});
+
+const manrope = Manrope({
+  subsets: ['latin'],
+  variable: '--font-manrope',
   display: 'swap',
 });
 
@@ -82,7 +94,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en" className={`${playfairDisplay.variable} ${montserrat.variable} ${pinyonScript.variable} scroll-smooth`}>
+    <html lang="en" className={`${playfairDisplay.variable} ${montserrat.variable} ${pinyonScript.variable} ${cinzel.variable} ${manrope.variable} scroll-smooth`}>
       <body className="bg-white min-h-screen flex flex-col">
         <Header />
         <main className="flex-1">

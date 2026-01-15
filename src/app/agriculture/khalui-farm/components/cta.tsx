@@ -14,7 +14,7 @@ export function Cta() {
                     </div>
                     <h2 className="font-serif text-4xl md:text-6xl text-white leading-tight">The Reserve Membership.</h2>
                     <p className="text-neutral-400 font-sans leading-loose font-light">
-                        Secure your family's food sovereignty. Our CSA (Community Supported Agriculture) membership guarantees you a weekly share of our premium harvest—hand-selected, peak-ripeness produce, eggs, and priority access to livestock.
+                        Secure your family&apos;s food sovereignty. Our CSA (Community Supported Agriculture) membership guarantees you a weekly share of our premium harvest—hand-selected, peak-ripeness produce, eggs, and priority access to livestock.
                     </p>
                     <ul className="space-y-4">
                         {["Weekly Seasonal Box", "Priority Lamb & Poultry", "Invites to Farm Dinners", "Direct Farmer Connection"].map((item, i) => (
@@ -34,7 +34,7 @@ export function Cta() {
                         <ShoppingBasket className="w-16 h-16 text-[#D4AF37] mb-8 opacity-80" />
                         <h3 className="font-serif text-2xl text-white mb-2">Weekly Harvest</h3>
                         <p className="text-xs text-neutral-500 uppercase tracking-widest mb-8">Starting at $45 / Week</p>
-                        <p className="text-sm text-neutral-400 font-light italic leading-relaxed">"The difference in taste is undeniable. It's not just food; it's a connection to the land we live on."</p>
+                        <p className="text-sm text-neutral-400 font-light italic leading-relaxed">&quot;The difference in taste is undeniable. It&apos;s not just food; it&apos;s a connection to the land we live on.&quot;</p>
                     </div>
                 </div>
             </div>
