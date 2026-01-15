@@ -1,6 +1,8 @@
 import type { Metadata, Viewport } from 'next';
 import { Playfair_Display, Montserrat, Pinyon_Script } from 'next/font/google';
 import './globals.css';
+import { Header } from '@/components/header';
+import { Footer } from '@/components/footer';
 
 const playfairDisplay = Playfair_Display({
   subsets: ['latin'],
@@ -21,8 +23,8 @@ const pinyonScript = Pinyon_Script({
   display: 'swap',
 });
 
-const canonicalUrl = 'https://www.artisanalabode.com';
-const siteTitle = 'Artisanal Abode';
+const canonicalUrl = 'https://www.growsharecapital.com';
+const siteTitle = 'GrowShare Capital';
 const siteDescription = 'A premier American private equity and impact investment platform building resilient communities through intelligent, ethical, and high-yield investments.';
 const logoUrl = '/logo.png';
 const previewImageUrl = '/preview.png';
@@ -43,7 +45,7 @@ export const metadata: Metadata = {
     ],
   },
   appleWebApp: {
-    title: 'Artisanal Abode',
+    title: 'GrowShare Capital',
     statusBarStyle: 'default',
     capable: true,
   },
@@ -56,7 +58,7 @@ export const metadata: Metadata = {
         url: previewImageUrl,
         width: 1200,
         height: 630,
-        alt: 'Artisanal Abode - High-yield, principled investments in resilient communities.',
+        alt: 'GrowShare Capital - High-yield, principled investments in resilient communities.',
       },
     ],
     locale: 'en_US',
@@ -71,7 +73,7 @@ export const metadata: Metadata = {
 };
 
 export const viewport: Viewport = {
-  themeColor: '#F9F7F2',
+  themeColor: '#FFFFFF',
 };
 
 export default function RootLayout({
@@ -81,8 +83,12 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en" className={`${playfairDisplay.variable} ${montserrat.variable} ${pinyonScript.variable} scroll-smooth`}>
-      <body className="bg-light-gray">
-        {children}
+      <body className="bg-white min-h-screen flex flex-col">
+        <Header />
+        <main className="flex-1">
+            {children}
+        </main>
+        <Footer />
       </body>
     </html>
   );
