@@ -292,7 +292,7 @@ export default function AboutPage() {
                     <p className="text-neutral-500 max-w-2xl mx-auto mb-10 font-light">
                         Our leadership team combines decades of experience in finance, real estate, and strategic development.
                     </p>
-                    <Link href="/leadership" className="inline-block text-[11px] tracking-[0.3em] uppercase font-bold border-b border-black pb-2 hover:opacity-50 transition-opacity">
+                    <Link href="/about" className="inline-block text-[11px] tracking-[0.3em] uppercase font-bold border-b border-black pb-2 hover:opacity-50 transition-opacity">
                         View Team Profile
                     </Link>
                 </div>
