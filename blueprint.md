@@ -8,12 +8,12 @@ Artisanal Abode is a premier platform for impactful investments in livestock, he
 
 ### **Style Guidelines**
 
-- **Primary Color Palette**: 
-    - **Cream Base**: hsl(39 50% 95%)
-    - **Cream Dark**: hsl(39 45% 90%)
-    - **Cream Text**: hsl(40 5% 25%)
-    - **Truffle Dark**: hsl(25 20% 15%)
-    - **Gold Accent**: hsl(35 60% 50%)
+- **"Creamy Luxury" Palette**:
+    - **Cream Base**: hsl(40 33% 96%)
+    - **Cream Dark**: hsl(40 27% 93%)
+    - **Cream Text**: hsl(40 24% 91%)
+    - **Truffle Dark**: hsl(30 5% 23%)
+    - **Gold Accent**: hsl(45 56% 65%)
 - **Fonts**:
     - **Headlines**: 'Playfair Display' (serif) for an elegant and intellectual feel.
     - **Body**: 'Montserrat' (sans-serif) for readability.
@@ -34,5 +34,7 @@ Artisanal Abode is a premier platform for impactful investments in livestock, he
 
 ## **Current Plan**
 
-1.  **Integrate the new luxurious design**: Update all components and pages to use the new color palette.
+1.  **Integrate the new "Creamy Luxury" design**:
+    - [x] Update `globals.css` with the new color palette.
+    - [ ] Update components to use the new color variables.
 2.  **Run linter and type checker**: Ensure the code is clean and error-free.
