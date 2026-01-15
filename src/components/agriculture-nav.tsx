@@ -1,7 +1,8 @@
+'use client';
+
 import React from 'react';
 import { ArrowRight, DollarSign, HelpCircle, BookOpen, CheckCircle2, MapPin, Users, Home, Sprout, Building2, Globe } from "lucide-react";
 import Link from 'next/link';
-import { motion } from 'framer-motion';
 
 export function AgricultureNav() {
   const navItems = [

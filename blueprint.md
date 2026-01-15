@@ -1,40 +1,33 @@
-# **App Name**: Artisanal Abode
+# Project Blueprint
 
-## **Purpose and Capabilities**
+## Overview
 
-Artisanal Abode is a premier platform for impactful investments in livestock, healthcare, and affordable housing. The application is designed to be a visually appealing and informative resource for potential investors and partners.
+This project is a modern, professional website for GrowShare Capital, a private equity and impact investment firm. The site is built using Next.js and the App Router, and it is designed to be visually appealing, responsive, and easy to maintain. It highlights the firm's investment thesis in key sectors like real estate, agriculture, and healthcare.
 
-## **Style, Design, and Features**
+## Style & Design
 
-### **Style Guidelines**
+- **Typography:** The site uses a combination of serif and sans-serif fonts to create a professional and elegant feel. `Playfair Display` is used for headings, `Montserrat` for body text, and `Pinyon Script` for decorative accents. For the Khalui Farm page, `Cinzel` and `Manrope` will be used.
+- **Color Palette:** The primary color scheme is based on cream, truffle-dark, and gold-accent colors, creating a warm and sophisticated look.
+- **Layout:** The layout is clean and modern, with a focus on readability and visual hierarchy. It uses a responsive grid system to ensure a good experience on all devices.
+- **Components:** The UI is built with reusable React components, styled with Tailwind CSS.
 
-- **"Creamy Luxury" Palette**:
-    - **Cream Base**: hsl(40 33% 96%)
-    - **Cream Dark**: hsl(40 27% 93%)
-    - **Cream Text**: hsl(40 24% 91%)
-    - **Truffle Dark**: hsl(30 5% 23%)
-    - **Gold Accent**: hsl(45 56% 65%)
-- **Fonts**:
-    - **Headlines**: 'Playfair Display' (serif) for an elegant and intellectual feel.
-    - **Body**: 'Montserrat' (sans-serif) for readability.
-    - **Script**: 'Pinyon Script' for a touch of luxury.
-- **Icons**: Simple, professional icons related to each section and project.
-- **Layout**: Grid-based layout for a clean and organized presentation.
-- **Animations**: Subtle transitions and animations to enhance the user experience.
+## Features
 
-### **Core Features**
+- **Home Page:** A visually engaging hero section, an overview of the investment thesis, and sections for philosophy, news (The Journal), partners, and leadership.
+- **News/Journal:** A section to display articles and updates.
+- **Contact Page:** A form for inquiries.
+- **Static Pages:** About, Leadership, etc.
+- **Agriculture Section:** A page dedicated to the firm's agriculture investments.
+  - **Khalui Farm Page:** A new, detailed page showcasing a specific agricultural project, "Khalui Farm." This page will have its own distinct visual identity while remaining consistent with the overall brand.
 
-- **Informative Landing Page**: A visually appealing landing page with clear sections for livestock, healthcare, and affordable housing/investing.
-- **Livestock Section**: Detailed information about livestock projects, including project showcases with dynamic image galleries.
-- **Healthcare Section**: Dedicated section providing resources on healthcare initiatives, including interactive content cards.
-- **Affordable Housing/Investing Section**: Information and showcases on affordable housing and investment opportunities, including project details.
-- **Intuitive Navigation**: A user-friendly navigation system for easy access to each section.
-- **Engagement Inquiry Forms**: Inquiry forms to capture user interest and inquiries for each project or section.
-- **News/Journal Section**: A blog-like section to showcase the latest news and updates.
+## Current Plan: Add Khalui Farm Page
 
-## **Current Plan**
-
-1.  **Integrate the new "Creamy Luxury" design**:
-    - [x] Update `globals.css` with the new color palette.
-    - [ ] Update components to use the new color variables.
-2.  **Run linter and type checker**: Ensure the code is clean and error-free.
+- **Create New Route:** Add a new page at the route `/agriculture/khalui-farm`.
+- **Refactor Provided Code:** The monolithic code block for the Khalui Farm page will be broken down into smaller, more manageable components.
+  - `page.tsx`: The server component entry point with metadata.
+  - `client-page.tsx`: The main client-side component that assembles the page.
+  - `components/`: A new directory for page-specific components (e.g., Hero, Process, Gallery, FAQ).
+  - `config.ts`: A file to store configuration data like API keys, contact info, and image URLs.
+- **Integrate Fonts:** Add the `Cinzel` and `Manrope` Google Fonts to the root layout to be used on the Khalui Farm page.
+- **Update Navigation:** Add a link from the main `/agriculture` page to the new `/agriculture/khalui-farm` page.
+- **Ensure Consistency:** Remove hardcoded header/footer from the provided code and ensure the page uses the existing shared layout for a consistent look and feel.
