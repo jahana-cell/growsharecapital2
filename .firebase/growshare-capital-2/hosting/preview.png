@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630">
+  <rect width="1200" height="630" fill="#F0F0F0"/>
+  <rect x="50" y="50" width="1100" height="530" fill="#34495E"/>
+  <text x="50%" y="45%" dominant-baseline="middle" text-anchor="middle" font-family="Playfair Display, serif" font-size="80" fill="white">Artisanal Abode</text>
+  <text x="50%" y="55%" dominant-baseline="middle" text-anchor="middle" font-family="Montserrat, sans-serif" font-size="30" fill="white">A premier platform for impactful investments in livestock, healthcare, and affordable housing.</text>
+</svg>
