@@ -37,7 +37,7 @@ const MobileMenu = () => {
   };
 
   return (
-    <div className="md:hidden">
+    <div>
       <button onClick={toggleMenu} className="p-2 z-50 relative">
         <Menu className="h-6 w-6 text-stone-900" />
       </button>

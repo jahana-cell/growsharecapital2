@@ -1,8 +1,8 @@
 import type { Metadata, Viewport } from 'next';
 import { Playfair_Display, Montserrat, Pinyon_Script, Cinzel, Manrope } from 'next/font/google';
 import './globals.css';
-import { Header } from '@/components/header';
-import { Footer } from '@/components/footer';
+import Header from '../components/header';
+import Footer from '../components/footer';
 
 const playfairDisplay = Playfair_Display({
   subsets: ['latin'],

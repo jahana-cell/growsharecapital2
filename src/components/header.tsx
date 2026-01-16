@@ -7,7 +7,7 @@ import Image from 'next/image';
 import { navLinks } from '@/lib/constants';
 import MobileMenu from './mobile-menu';
 
-export function Header() {
+const Header = () => {
   return (
     <header className="sticky top-0 z-50 w-full border-b border-stone-200/80 bg-[#FDFCFB]/80 backdrop-blur-lg">
       <div className="container mx-auto flex h-20 items-center justify-between px-6">
@@ -17,6 +17,7 @@ export function Header() {
               src="https://firebasestorage.googleapis.com/v0/b/growshare-capital.firebasestorage.app/o/Logo%2FGrowshare%20Capital%20Transparent.png?alt=media&token=b53577e6-eb64-409d-aa7a-e9aa4fe01c49"
               alt="GrowShare Capital Logo"
               fill
+              sizes="32px"
               className="object-contain"
             />
           </div>
@@ -25,7 +26,7 @@ export function Header() {
           </span>
         </Link>
 
-        <nav className="hidden items-center gap-x-8 md:flex">
+        <nav className="hidden">
           {navLinks.map(link => (
             <Link
               key={link.href}
@@ -38,7 +39,7 @@ export function Header() {
         </nav>
 
         <div className="flex items-center gap-4">
-            <div className="hidden md:flex">
+            <div className="hidden">
                 <Link href="/contact" className="rounded-full border border-stone-300 px-6 py-2 text-xs font-semibold text-stone-700 transition-all duration-300 hover:bg-stone-900 hover:text-white hover:border-stone-900">
                     Contact
                 </Link>
@@ -48,4 +49,6 @@ export function Header() {
       </div>
     </header>
   );
-}
+};
+
+export default Header;
