@@ -17,8 +17,8 @@ import { Process } from './components/process';
 import { Gallery } from './components/gallery';
 import { Cta } from './components/cta';
 import { LeadMagnets } from './components/lead-magnets';
-import { Faq } from './components/faq';
-import { Footer } from './components/footer';
+import FAQ from './components/faq';
+import Footer from './footer';
 import { FloatingInquiriesButton } from './components/floating-inquiries-button';
 
 export default function KhaluiFarmClientPage() {
@@ -33,7 +33,7 @@ export default function KhaluiFarmClientPage() {
                 <Gallery />
                 <Cta />
                 <LeadMagnets />
-                <Faq />
+                <FAQ />
                 <Footer />
             </div>
         </div>

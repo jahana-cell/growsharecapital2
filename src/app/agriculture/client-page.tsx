@@ -8,46 +8,7 @@ import {
   ArrowRight, ShieldCheck, Sun, Droplets, MapPin 
 } from 'lucide-react';
 import { cn } from "@/lib/utils";
-
-// --- MOCK DATA ---
-const initiatives = [
-  {
-    title: "Ghee Manufacturing",
-    category: "Value-Added",
-    description: "Producing high-quality dairy products for local and export markets.",
-    image: "https://images.unsplash.com/photo-1573812461383-e5f8b759d12e?q=80&w=1080",
-    link: "/agriculture/ghee-manufacturing"
-  },
-  {
-    title: "Meat Processing",
-    category: "Supply Chain",
-    description: "Ethically sourced meat processing ensuring a resilient American food system.",
-    image: "https://images.unsplash.com/photo-1607623814075-e51df1bdc82f?q=80&w=1080",
-    link: null
-  },
-  {
-    title: "Agri-Entrepreneurship",
-    category: "Incubation",
-    description: "Funding the next generation of American food innovators.",
-    image: "https://images.unsplash.com/photo-1744726010540-bf318d4a691f?q=80&w=1080",
-    link: null
-  },
-  {
-    title: "Vertical Farming",
-    category: "Technology",
-    description: "Investing in high-yield, small-footprint urban agriculture tech.",
-    image: "https://images.unsplash.com/photo-1530836369250-ef72a3f5cda8?q=80&w=1080",
-    link: null
-  }
-];
-
-const impactStats = [
-    { target: "15+", label: 'Farms Supported' },
-    { target: "50k+", label: 'Lbs Produced' },
-    { target: "100%", label: 'USDA Certified' },
-    { target: "25+", label: 'Jobs Created' },
-    { target: "3", label: 'States Active' }
-];
+import { initiatives, impactStats } from "@/lib/constants";
 
 export default function AgricultureClientPage() {
   return (

@@ -11,6 +11,7 @@ import {
   investmentPhilosophy, 
   companyTimeline 
 } from "@/lib/constants";
+import LeadershipTeam from '@/components/leadership-team';
 
 export default function AboutPage() {
     const [activeStrategy, setActiveStrategy] = useState(expansionStrategyItems[0]);
@@ -242,12 +243,12 @@ export default function AboutPage() {
                     </div>
 
                     <div className="grid md:grid-cols-3 gap-12 border-t border-white/10 pt-12">
-                         {investmentPhilosophy.map((item, index) => (
+                         {investmentPhilosophy.map(({ icon: Icon, title, description }, index) => (
                             <div key={index} className="space-y-4">
-                                <item.icon className="h-8 w-8 stroke-[1px] text-gold-accent mb-4" />
-                                <h3 className="text-lg font-bold uppercase tracking-widest text-white">{item.title}</h3>
+                                {Icon && <Icon className="h-8 w-8 stroke-[1px] text-gold-accent mb-4" />}
+                                <h3 className="text-lg font-bold uppercase tracking-widest text-white">{title}</h3>
                                 <p className="text-sm text-stone-400 leading-relaxed font-light">
-                                    {item.description}
+                                    {description}
                                 </p>
                             </div>
                         ))}
@@ -255,15 +256,17 @@ export default function AboutPage() {
                 </div>
             </section>
 
+            <LeadershipTeam />
+
             {/* --- 8. CTA --- */}
-            <section className="py-32 text-center bg-cream-base">
+            <section className="py-32 text-center bg-cream-dark">
                 <div className="container mx-auto px-6">
-                    <h2 className="text-3xl md:text-5xl font-serif mb-8 text-truffle-dark">Meet the Leadership</h2>
+                    <h2 className="text-3xl md:text-5xl font-serif mb-8 text-truffle-dark">Ready to Invest?</h2>
                     <p className="text-stone-500 max-w-2xl mx-auto mb-10 font-light">
-                        Our leadership team combines decades of experience in finance, real estate, and strategic development, driving our mission forward with expertise and integrity.
+                        Join us in building a more resilient and prosperous future. Explore our investment opportunities or get in touch to discuss a strategic partnership.
                     </p>
-                    <Link href="/about" className="inline-block text-[11px] tracking-[0.3em] uppercase font-bold border-b-2 border-gold-accent pb-2 text-truffle-dark hover:opacity-70 transition-opacity">
-                        View Team Profile
+                    <Link href="/contact" className="inline-block text-[11px] tracking-[0.3em] uppercase font-bold border-b-2 border-gold-accent pb-2 text-truffle-dark hover:opacity-70 transition-opacity">
+                        Contact Us
                     </Link>
                 </div>
             </section>

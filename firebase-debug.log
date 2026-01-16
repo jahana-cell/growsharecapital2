@@ -358,3 +358,85 @@
 [error] Failed to fetch Firebase Project from Studio Workspace because WORKSPACE_SLUG environment variable is empty
 [debug] [2026-01-16T03:35:11.612Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform","https://www.googleapis.com/auth/userinfo.email"]
 [debug] [2026-01-16T03:35:11.612Z] > authorizing via signed-in user (info@growsharecapital.com)
+[error] Failed to fetch Firebase Project from Studio Workspace because WORKSPACE_SLUG environment variable is empty
+[error] Failed to fetch Firebase Project from Studio Workspace because WORKSPACE_SLUG environment variable is empty
+[error] Failed to fetch Firebase Project from Studio Workspace because WORKSPACE_SLUG environment variable is empty
+[error] Failed to fetch Firebase Project from Studio Workspace because WORKSPACE_SLUG environment variable is empty
+[debug] [2026-01-16T16:06:21.063Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform","https://www.googleapis.com/auth/userinfo.email"]
+[debug] [2026-01-16T16:06:21.077Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform","https://www.googleapis.com/auth/userinfo.email"]
+[debug] [2026-01-16T16:06:49.964Z] Running auto auth
+[debug] [2026-01-16T16:06:49.966Z] Running auto auth
+[debug] [2026-01-16T16:06:50.076Z] No OAuth tokens found
+[debug] [2026-01-16T16:06:50.081Z] >>> [apiv2][query] GET https://cloudbilling.googleapis.com/v1/projects/growshare-capital-2/billingInfo [none]
+[debug] [2026-01-16T16:06:50.191Z] No OAuth tokens found
+[debug] [2026-01-16T16:06:50.193Z] >>> [apiv2][query] GET https://cloudbilling.googleapis.com/v1/projects/growshare-capital-2/billingInfo [none]
+[debug] [2026-01-16T16:06:50.377Z] <<< [apiv2][status] GET https://cloudbilling.googleapis.com/v1/projects/growshare-capital-2/billingInfo 200
+[debug] [2026-01-16T16:06:50.379Z] <<< [apiv2][body] GET https://cloudbilling.googleapis.com/v1/projects/growshare-capital-2/billingInfo {"name":"projects/growshare-capital-2/billingInfo","projectId":"growshare-capital-2","billingAccountName":"billingAccounts/013503-46EC80-00C4B8","billingEnabled":true}
+[debug] [2026-01-16T16:06:50.407Z] No OAuth tokens found
+[debug] [2026-01-16T16:06:50.409Z] No OAuth tokens found
+[debug] [2026-01-16T16:06:50.437Z] No OAuth tokens found
+[debug] [2026-01-16T16:06:50.437Z] >>> [apiv2][query] GET https://serviceusage.googleapis.com/v1/projects/growshare-capital-2/services/firestore.googleapis.com [none]
+[debug] [2026-01-16T16:06:50.438Z] >>> [apiv2][(partial)header] GET https://serviceusage.googleapis.com/v1/projects/growshare-capital-2/services/firestore.googleapis.com x-goog-quota-user=projects/growshare-capital-2
+[debug] [2026-01-16T16:06:50.441Z] >>> [apiv2][query] GET https://serviceusage.googleapis.com/v1/projects/growshare-capital-2/services/firebasedataconnect.googleapis.com [none]
+[debug] [2026-01-16T16:06:50.441Z] >>> [apiv2][(partial)header] GET https://serviceusage.googleapis.com/v1/projects/growshare-capital-2/services/firebasedataconnect.googleapis.com x-goog-quota-user=projects/growshare-capital-2
+[debug] [2026-01-16T16:06:50.444Z] >>> [apiv2][query] GET https://serviceusage.googleapis.com/v1/projects/growshare-capital-2/services/firebaseio.com [none]
+[debug] [2026-01-16T16:06:50.445Z] >>> [apiv2][(partial)header] GET https://serviceusage.googleapis.com/v1/projects/growshare-capital-2/services/firebaseio.com x-goog-quota-user=projects/growshare-capital-2
+[debug] [2026-01-16T16:06:50.610Z] <<< [apiv2][status] GET https://cloudbilling.googleapis.com/v1/projects/growshare-capital-2/billingInfo 200
+[debug] [2026-01-16T16:06:50.615Z] <<< [apiv2][body] GET https://cloudbilling.googleapis.com/v1/projects/growshare-capital-2/billingInfo {"name":"projects/growshare-capital-2/billingInfo","projectId":"growshare-capital-2","billingAccountName":"billingAccounts/013503-46EC80-00C4B8","billingEnabled":true}
+[debug] [2026-01-16T16:06:50.622Z] No OAuth tokens found
+[debug] [2026-01-16T16:06:50.623Z] No OAuth tokens found
+[debug] [2026-01-16T16:06:50.645Z] No OAuth tokens found
+[debug] [2026-01-16T16:06:50.648Z] >>> [apiv2][query] GET https://serviceusage.googleapis.com/v1/projects/growshare-capital-2/services/firestore.googleapis.com [none]
+[debug] [2026-01-16T16:06:50.649Z] >>> [apiv2][(partial)header] GET https://serviceusage.googleapis.com/v1/projects/growshare-capital-2/services/firestore.googleapis.com x-goog-quota-user=projects/growshare-capital-2
+[debug] [2026-01-16T16:06:50.654Z] >>> [apiv2][query] GET https://serviceusage.googleapis.com/v1/projects/growshare-capital-2/services/firebasedataconnect.googleapis.com [none]
+[debug] [2026-01-16T16:06:50.654Z] >>> [apiv2][(partial)header] GET https://serviceusage.googleapis.com/v1/projects/growshare-capital-2/services/firebasedataconnect.googleapis.com x-goog-quota-user=projects/growshare-capital-2
+[debug] [2026-01-16T16:06:50.657Z] >>> [apiv2][query] GET https://serviceusage.googleapis.com/v1/projects/growshare-capital-2/services/firebaseio.com [none]
+[debug] [2026-01-16T16:06:50.657Z] >>> [apiv2][(partial)header] GET https://serviceusage.googleapis.com/v1/projects/growshare-capital-2/services/firebaseio.com x-goog-quota-user=projects/growshare-capital-2
+[debug] [2026-01-16T16:06:50.779Z] <<< [apiv2][status] GET https://serviceusage.googleapis.com/v1/projects/growshare-capital-2/services/firebaseio.com 403
+[debug] [2026-01-16T16:06:50.779Z] <<< [apiv2][body] GET https://serviceusage.googleapis.com/v1/projects/growshare-capital-2/services/firebaseio.com [omitted]
+[debug] [2026-01-16T16:06:50.867Z] <<< [apiv2][status] GET https://serviceusage.googleapis.com/v1/projects/growshare-capital-2/services/firebaseio.com 403
+[debug] [2026-01-16T16:06:50.867Z] <<< [apiv2][body] GET https://serviceusage.googleapis.com/v1/projects/growshare-capital-2/services/firebaseio.com [omitted]
+[debug] [2026-01-16T16:06:51.063Z] <<< [apiv2][status] GET https://serviceusage.googleapis.com/v1/projects/growshare-capital-2/services/firebasedataconnect.googleapis.com 200
+[debug] [2026-01-16T16:06:51.063Z] <<< [apiv2][body] GET https://serviceusage.googleapis.com/v1/projects/growshare-capital-2/services/firebasedataconnect.googleapis.com [omitted]
+[debug] [2026-01-16T16:06:51.083Z] <<< [apiv2][status] GET https://serviceusage.googleapis.com/v1/projects/growshare-capital-2/services/firebasedataconnect.googleapis.com 200
+[debug] [2026-01-16T16:06:51.083Z] <<< [apiv2][body] GET https://serviceusage.googleapis.com/v1/projects/growshare-capital-2/services/firebasedataconnect.googleapis.com [omitted]
+[debug] [2026-01-16T16:06:51.089Z] <<< [apiv2][status] GET https://serviceusage.googleapis.com/v1/projects/growshare-capital-2/services/firestore.googleapis.com 200
+[debug] [2026-01-16T16:06:51.089Z] <<< [apiv2][body] GET https://serviceusage.googleapis.com/v1/projects/growshare-capital-2/services/firestore.googleapis.com [omitted]
+[error] Failed to fetch Firebase Project from Studio Workspace because WORKSPACE_SLUG environment variable is empty
+[error] Failed to fetch Firebase Project from Studio Workspace because WORKSPACE_SLUG environment variable is empty
+[error] Failed to fetch Firebase Project from Studio Workspace because WORKSPACE_SLUG environment variable is empty
+[debug] [2026-01-16T16:06:51.098Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform","https://www.googleapis.com/auth/userinfo.email"]
+[debug] [2026-01-16T16:06:51.098Z] > authorizing via signed-in user (info@growsharecapital.com)
+[debug] [2026-01-16T16:06:51.099Z] No OAuth tokens found
+[debug] [2026-01-16T16:06:51.099Z] >>> [apiv2][query] GET https://cloudbilling.googleapis.com/v1/projects/growshare-capital-2/billingInfo [none]
+[debug] [2026-01-16T16:06:51.110Z] <<< [apiv2][status] GET https://serviceusage.googleapis.com/v1/projects/growshare-capital-2/services/firestore.googleapis.com 200
+[debug] [2026-01-16T16:06:51.110Z] <<< [apiv2][body] GET https://serviceusage.googleapis.com/v1/projects/growshare-capital-2/services/firestore.googleapis.com [omitted]
+[debug] [2026-01-16T16:06:51.212Z] <<< [apiv2][status] GET https://cloudbilling.googleapis.com/v1/projects/growshare-capital-2/billingInfo 200
+[debug] [2026-01-16T16:06:51.212Z] <<< [apiv2][body] GET https://cloudbilling.googleapis.com/v1/projects/growshare-capital-2/billingInfo {"name":"projects/growshare-capital-2/billingInfo","projectId":"growshare-capital-2","billingAccountName":"billingAccounts/013503-46EC80-00C4B8","billingEnabled":true}
+[error] Failed to fetch Firebase Project from Studio Workspace because WORKSPACE_SLUG environment variable is empty
+[debug] [2026-01-16T16:06:51.215Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform","https://www.googleapis.com/auth/userinfo.email"]
+[debug] [2026-01-16T16:06:51.215Z] > authorizing via signed-in user (info@growsharecapital.com)
+[error] Failed to fetch Firebase Project from Studio Workspace because WORKSPACE_SLUG environment variable is empty
+[error] Failed to fetch Firebase Project from Studio Workspace because WORKSPACE_SLUG environment variable is empty
+[error] Failed to fetch Firebase Project from Studio Workspace because WORKSPACE_SLUG environment variable is empty
+[debug] [2026-01-16T16:06:51.276Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform","https://www.googleapis.com/auth/userinfo.email"]
+[debug] [2026-01-16T16:06:51.276Z] > authorizing via signed-in user (info@growsharecapital.com)
+[debug] [2026-01-16T16:06:51.277Z] No OAuth tokens found
+[debug] [2026-01-16T16:06:51.277Z] >>> [apiv2][query] GET https://cloudbilling.googleapis.com/v1/projects/growshare-capital-2/billingInfo [none]
+[error] Failed to fetch Firebase Project from Studio Workspace because WORKSPACE_SLUG environment variable is empty
+[error] Failed to fetch Firebase Project from Studio Workspace because WORKSPACE_SLUG environment variable is empty
+[error] Failed to fetch Firebase Project from Studio Workspace because WORKSPACE_SLUG environment variable is empty
+[debug] [2026-01-16T16:06:51.286Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform","https://www.googleapis.com/auth/userinfo.email"]
+[debug] [2026-01-16T16:06:51.286Z] > authorizing via signed-in user (info@growsharecapital.com)
+[debug] [2026-01-16T16:06:51.286Z] No OAuth tokens found
+[debug] [2026-01-16T16:06:51.287Z] >>> [apiv2][query] GET https://cloudbilling.googleapis.com/v1/projects/growshare-capital-2/billingInfo [none]
+[debug] [2026-01-16T16:06:51.496Z] <<< [apiv2][status] GET https://cloudbilling.googleapis.com/v1/projects/growshare-capital-2/billingInfo 200
+[debug] [2026-01-16T16:06:51.496Z] <<< [apiv2][body] GET https://cloudbilling.googleapis.com/v1/projects/growshare-capital-2/billingInfo {"name":"projects/growshare-capital-2/billingInfo","projectId":"growshare-capital-2","billingAccountName":"billingAccounts/013503-46EC80-00C4B8","billingEnabled":true}
+[error] Failed to fetch Firebase Project from Studio Workspace because WORKSPACE_SLUG environment variable is empty
+[debug] [2026-01-16T16:06:51.498Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform","https://www.googleapis.com/auth/userinfo.email"]
+[debug] [2026-01-16T16:06:51.499Z] > authorizing via signed-in user (info@growsharecapital.com)
+[debug] [2026-01-16T16:06:51.515Z] <<< [apiv2][status] GET https://cloudbilling.googleapis.com/v1/projects/growshare-capital-2/billingInfo 200
+[debug] [2026-01-16T16:06:51.515Z] <<< [apiv2][body] GET https://cloudbilling.googleapis.com/v1/projects/growshare-capital-2/billingInfo {"name":"projects/growshare-capital-2/billingInfo","projectId":"growshare-capital-2","billingAccountName":"billingAccounts/013503-46EC80-00C4B8","billingEnabled":true}
+[error] Failed to fetch Firebase Project from Studio Workspace because WORKSPACE_SLUG environment variable is empty
+[debug] [2026-01-16T16:06:51.519Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform","https://www.googleapis.com/auth/userinfo.email"]
+[debug] [2026-01-16T16:06:51.519Z] > authorizing via signed-in user (info@growsharecapital.com)

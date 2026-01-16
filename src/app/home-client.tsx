@@ -6,11 +6,11 @@ import Link from "next/link";
 import { motion } from "framer-motion";
 import { ArrowRight, Building2, Wheat, HeartPulse, ShieldCheck, Globe } from "lucide-react";
 import type { Story } from '@/app/news/stories-data';
-import { formatInTimeZone } from 'date-fns-tz';
 import { Timestamp, collection, getDocs, query, orderBy, limit } from 'firebase/firestore';
 import { db } from '@/lib/firebase';
 import LeadershipSection from '@/components/sections/leadership-section';
 import OurPartners from '@/components/sections/our-partners';
+import FormattedDate from '@/components/FormattedDate';
 
 // --- ANIMATION CONFIG ---
 const fadeUp = {
@@ -50,23 +50,6 @@ const featuredInvestments = [
     icon: HeartPulse
   }
 ];
-
-function FormattedDate({ dateValue }: { dateValue: string | Date | Timestamp | null | undefined }) {
-  const [formattedDate, setFormattedDate] = useState('');
-  useEffect(() => {
-    if (!dateValue) {
-      setFormattedDate('');
-      return;
-    }
-    try {
-      const date = dateValue instanceof Timestamp ? dateValue.toDate() : new Date(dateValue);
-      setFormattedDate(formatInTimeZone(date, 'UTC', 'MMMM d, yyyy'));
-    } catch (e) {
-      setFormattedDate('Invalid Date');
-    }
-  }, [dateValue]);
-  return <>{formattedDate}</>;
-}
 
 export default function HomeClientPage({ initialStories }: { initialStories: Story[] }) {
   const [recentStories, setRecentStories] = useState<Story[]>(initialStories);

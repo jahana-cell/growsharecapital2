@@ -24,4 +24,8 @@ const TableCell = ({ children }: { children: React.ReactNode }) => {
   return <td className="p-2">{children}</td>;
 };
 
-export { Table, TableHeader, TableRow, TableHead, TableBody, TableCell };
+const TableFooter = ({ children }: { children: React.ReactNode }) => {
+  return <tfoot>{children}</tfoot>;
+};
+
+export { Table, TableHeader, TableRow, TableHead, TableBody, TableCell, TableFooter };

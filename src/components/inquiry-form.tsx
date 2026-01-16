@@ -1,116 +1,189 @@
-
 'use client';
 
-import { useState } from 'react';
-import { motion } from 'framer-motion';
-import { Send } from 'lucide-react';
+import { useEffect, useRef } from 'react';
+import { useFormState, useFormStatus } from 'react-dom';
+import { motion, AnimatePresence } from 'framer-motion';
+import { Send, Loader, AlertTriangle, CheckCircle } from 'lucide-react';
+import { submitInquiry, InquiryState } from '@/app/contact/actions';
+import { cn } from '@/lib/utils';
 
-const InquiryForm = ({ subject: initialSubject = '' }) => {
-  const [subject, setSubject] = useState(initialSubject);
-  const [message, setMessage] = useState('');
-  const [status, setStatus] = useState('');
-
-  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
-    e.preventDefault();
-    setStatus('Submitting...');
-
-    // Here you would typically call a server action or API endpoint
-    // For now, we'''ll just simulate a delay
-    await new Promise(resolve => setTimeout(resolve, 2000));
-
-    setStatus('Message sent successfully!');
-    setSubject('');
-    setMessage('');
-    setTimeout(() => setStatus(''), 3000);
-  };
-
-  const fadeInUp = {
-    hidden: { opacity: 0, y: 20 },
-    visible: { opacity: 1, y: 0, transition: { duration: 0.8 } }
-  };
-
-  return (
-    <motion.form
-      variants={fadeInUp}
-      initial="hidden"
-      animate="visible"
-      onSubmit={handleSubmit}
-      className="space-y-6 bg-white dark:bg-gray-800 p-8 rounded-2xl shadow-2xl"
-    >
-        <div>
-            <label htmlFor="name" className="block text-sm font-medium text-gray-700 dark:text-gray-300">
-                Full Name
-            </label>
-            <div className="mt-1">
-                <input
-                    type="text"
-                    name="name"
-                    id="name"
-                    required
-                    className="block w-full px-4 py-3 rounded-md bg-gray-100 dark:bg-gray-700 border-transparent focus:border-indigo-500 focus:bg-white dark:focus:bg-gray-900 focus:ring-0"
-                />
-            </div>
-        </div>
-        <div>
-            <label htmlFor="email" className="block text-sm font-medium text-gray-700 dark:text-gray-300">
-                Email Address
-            </label>
-            <div className="mt-1">
-                <input
-                    id="email"
-                    name="email"
-                    type="email"
-                    autoComplete="email"
-                    required
-                    className="block w-full px-4 py-3 rounded-md bg-gray-100 dark:bg-gray-700 border-transparent focus:border-indigo-500 focus:bg-white dark:focus:bg-gray-900 focus:ring-0"
-                />
-            </div>
-        </div>
-      <div>
-        <label htmlFor="subject" className="block text-sm font-medium text-gray-700 dark:text-gray-300">
-          Subject
-        </label>
-        <div className="mt-1">
-          <input
-            type="text"
-            name="subject"
-            id="subject"
-            value={subject}
-            onChange={(e) => setSubject(e.target.value)}
-            required
-            className="block w-full px-4 py-3 rounded-md bg-gray-100 dark:bg-gray-700 border-transparent focus:border-indigo-500 focus:bg-white dark:focus:bg-gray-900 focus:ring-0"
-          />
-        </div>
-      </div>
-      <div>
-        <label htmlFor="message" className="block text-sm font-medium text-gray-700 dark:text-gray-300">
-          Message
-        </label>
-        <div className="mt-1">
-          <textarea
-            id="message"
-            name="message"
-            rows={4}
-            value={message}
-            onChange={(e) => setMessage(e.target.value)}
-            required
-            className="block w-full px-4 py-3 rounded-md bg-gray-100 dark:bg-gray-700 border-transparent focus:border-indigo-500 focus:bg-white dark:focus:bg-gray-900 focus:ring-0"
-          />
-        </div>
-      </div>
-      <div>
-        <motion.button
-          whileHover={{ scale: 1.05 }}
-          whileTap={{ scale: 0.95 }}
-          type="submit"
-          className="w-full flex justify-center items-center gap-2 py-3 px-4 border border-transparent rounded-full shadow-lg text-base font-semibold text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
-        >
-          Send Inquiry <Send size={18} />
-        </motion.button>
-      </div>
-      {status && <p className="text-center text-sm text-gray-500">{status}</p>}
-    </motion.form>
-  );
+const initialState: InquiryState = {
+  message: null,
+  errors: {},
 };
 
-export default InquiryForm;
+function SubmitButton() {
+  const { pending } = useFormStatus();
+
+  return (
+    <motion.button
+      type="submit"
+      disabled={pending}
+      className={cn(
+        "w-full flex items-center justify-center gap-3 px-8 py-4 bg-truffle-dark text-white hover:bg-stone-700 transition-all text-[10px] tracking-[0.3em] uppercase rounded-sm font-bold disabled:bg-stone-400 disabled:cursor-not-allowed",
+        pending && "bg-stone-500"
+      )}
+      whileHover={{ scale: pending ? 1 : 1.02 }}
+      whileTap={{ scale: pending ? 1 : 0.98 }}
+    >
+      {pending ? (
+        <>
+          <Loader className="animate-spin h-4 w-4" />
+          <span>Submitting...</span>
+        </>
+      ) : (
+        <>
+          <span>Send Inquiry</span>
+          <Send className="h-3 w-3" />
+        </>
+      )}
+    </motion.button>
+  );
+}
+
+interface InquiryFormProps {
+    defaultSubject?: string;
+}
+
+export default function InquiryForm({ defaultSubject = '' }: InquiryFormProps) {
+  const [state, formAction] = useFormState(submitInquiry, initialState);
+  const formRef = useRef<HTMLFormElement>(null);
+
+  useEffect(() => {
+    if (state.message && !state.errors) {
+      formRef.current?.reset();
+    }
+  }, [state]);
+
+  return (
+    <form ref={formRef} action={formAction} className="space-y-6">
+        
+        {/* Name Input */}
+      <div>
+        <label htmlFor="name" className="sr-only">Full Name</label>
+        <input
+          type="text"
+          name="name"
+          id="name"
+          placeholder="Full Name"
+          required
+          className="form-input"
+        />
+        <AnimatePresence>
+            {state.errors?.name && (
+            <motion.div
+                initial={{ opacity: 0, y: -10 }}
+                animate={{ opacity: 1, y: 0 }}
+                exit={{ opacity: 0, y: -10 }}
+                className="text-red-500 text-xs mt-1 flex items-center gap-1"
+            >
+                <AlertTriangle className="h-3 w-3" />
+                {state.errors.name[0]}
+            </motion.div>
+            )}
+        </AnimatePresence>
+      </div>
+
+      {/* Email Input */}
+      <div>
+        <label htmlFor="email" className="sr-only">Email Address</label>
+        <input
+          id="email"
+          name="email"
+          type="email"
+          placeholder="Email Address"
+          autoComplete="email"
+          required
+          className="form-input"
+        />
+        <AnimatePresence>
+            {state.errors?.email && (
+                <motion.div
+                    initial={{ opacity: 0, y: -10 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    exit={{ opacity: 0, y: -10 }}
+                    className="text-red-500 text-xs mt-1 flex items-center gap-1"
+                >
+                    <AlertTriangle className="h-3 w-3" />
+                    {state.errors.email[0]}
+                </motion.div>
+            )}
+        </AnimatePresence>
+      </div>
+
+        {/* Subject Input */}
+      <div>
+        <label htmlFor="subject" className="sr-only">Subject</label>
+        <input
+          type="text"
+          name="subject"
+          id="subject"
+          placeholder="Subject"
+          defaultValue={defaultSubject}
+          required
+          className="form-input"
+        />
+        <AnimatePresence>
+            {state.errors?.subject && (
+                 <motion.div
+                    initial={{ opacity: 0, y: -10 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    exit={{ opacity: 0, y: -10 }}
+                    className="text-red-500 text-xs mt-1 flex items-center gap-1"
+                 >
+                    <AlertTriangle className="h-3 w-3" />
+                    {state.errors.subject[0]}
+                </motion.div>
+            )}
+        </AnimatePresence>
+      </div>
+
+      {/* Message Textarea */}
+      <div>
+        <label htmlFor="message" className="sr-only">Message</label>
+        <textarea
+          id="message"
+          name="message"
+          rows={5}
+          placeholder="Your Message"
+          required
+          className="form-input"
+        />
+        <AnimatePresence>
+            {state.errors?.message && (
+                 <motion.div
+                    initial={{ opacity: 0, y: -10 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    exit={{ opacity: 0, y: -10 }}
+                    className="text-red-500 text-xs mt-1 flex items-center gap-1"
+                 >
+                    <AlertTriangle className="h-3 w-3" />
+                    {state.errors.message[0]}
+                </motion.div>
+            )}
+        </AnimatePresence>
+      </div>
+
+      <SubmitButton />
+
+      <AnimatePresence>
+        {state.message && (
+          <motion.div
+            initial={{ opacity: 0, y: 10 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, y: -10 }}
+            className={cn(
+              "text-sm text-center mt-4 rounded-md p-3 flex items-center justify-center gap-2",
+              state.errors 
+                ? 'bg-red-50 text-red-700 border border-red-200' 
+                : 'bg-emerald-50 text-emerald-800 border border-emerald-200'
+            )}
+          >
+            {state.errors ? <AlertTriangle className="h-4 w-4" /> : <CheckCircle className="h-4 w-4" />}
+            {state.message}
+          </motion.div>
+        )}
+      </AnimatePresence>
+    </form>
+  );
+}
