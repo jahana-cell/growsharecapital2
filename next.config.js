@@ -1,6 +1,28 @@
 /** @type {import('next').NextConfig} */
 
+const cspHeader = `
+    default-src 'self';
+    script-src 'self' 'unsafe-eval' 'unsafe-inline' https://apis.google.com;
+    style-src 'self' 'unsafe-inline';
+    img-src 'self' blob: data: https:;
+    font-src 'self' data:;
+    object-src 'none';
+    base-uri 'self';
+    form-action 'self';
+    frame-ancestors 'none';
+    block-all-mixed-content;
+    upgrade-insecure-requests;
+`;
+
 const securityHeaders = [
+  {
+    key: 'Content-Security-Policy',
+    value: cspHeader.replace(/\n/g, '')
+  },
+  {
+    key: 'Permissions-Policy',
+    value: 'camera=(), microphone=(), geolocation=(), browsing-topics=()'
+  },
   {
     key: 'X-DNS-Prefetch-Control',
     value: 'on'
@@ -15,7 +37,7 @@ const securityHeaders = [
   },
   {
     key: 'X-Frame-Options',
-    value: 'SAMEORIGIN'
+    value: 'DENY'
   },
   {
     key: 'X-Content-Type-Options',
@@ -23,7 +45,7 @@ const securityHeaders = [
   },
   {
     key: 'Referrer-Policy',
-    value: 'origin-when-cross-origin'
+    value: 'strict-origin-when-cross-origin'
   }
 ];
 
@@ -31,9 +53,7 @@ const nextConfig = {
   typescript: {
     ignoreBuildErrors: true,
   },
-  eslint: {
-    ignoreDuringBuilds: true,
-  },
+  turbopack: {},
   async headers() {
     return [
       {

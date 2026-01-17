@@ -2,7 +2,8 @@ import type { Metadata, Viewport } from 'next';
 import { Playfair_Display, Montserrat, Pinyon_Script, Cinzel, Manrope } from 'next/font/google';
 import './globals.css';
 import Header from '@/components/header';
-import Footer from '@/components/footer';
+import Footer from './Footer';
+import { AuthProvider } from '@/context/auth-context';
 
 const playfairDisplay = Playfair_Display({
   subsets: ['latin'],
@@ -94,13 +95,15 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en" className={`${playfairDisplay.variable} ${montserrat.variable} ${pinyonScript.variable} ${cinzel.variable} ${manrope.variable} scroll-smooth`}>
+    <html lang="en" className={`${playfairDisplay.variable} ${montserrat.variable} ${pinyonScript.variable} ${cinzel.variable} ${manrope.variable} scroll-smooth`} data-scroll-behavior="smooth">
       <body className="bg-white min-h-screen flex flex-col">
-        <Header />
-        <main className="flex-1">
-            {children}
-        </main>
-        <Footer />
+        <AuthProvider>
+          <Header />
+          <main className="flex-1">
+              {children}
+          </main>
+          <Footer />
+        </AuthProvider>
       </body>
     </html>
   );

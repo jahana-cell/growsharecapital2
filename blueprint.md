@@ -12,6 +12,7 @@ Artisanal Abode is a modern, sustainable agricultural company that provides a un
 - **Styling**: Tailwind CSS
 - **Interactivity**: Framer Motion, Lucide React
 - **Deployment**: Firebase
+- **Security**: Firebase App Check (ReCAPTCHA v3), Strict CSP, Permissions Policy
 
 ## Design and Style
 
@@ -38,6 +39,17 @@ The contact page provides a user-friendly way to get in touch with the company. 
 ### 4. About Page
 
 The about page offers a comprehensive overview of the company's history, values, and leadership team. It is designed to be informative and engaging, with a clear narrative that tells the company's story.
+
+### 5. Security
+
+The application implements a robust security strategy to protect user data and prevent malicious attacks. Key security features include:
+
+- **Firebase App Check**: Protects API resources from abuse by verifying that requests originate from the authentic application.
+- **Content Security Policy (CSP)**: Mitigates XSS attacks by restricting the sources of executable scripts and other resources.
+- **Permissions Policy**: Disables unused browser features to reduce the attack surface.
+- **Strict Transport Security (HSTS)**: Enforces HTTPS connections.
+- **X-Frame-Options**: Prevents clickjacking attacks.
+- **Input Validation**: Uses Zod for server-side validation of all user inputs.
 
 ## Future Development
 
