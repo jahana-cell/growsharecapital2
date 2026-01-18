@@ -1,18 +1,14 @@
-# Settings for Backend (on Cloud Run).
-# See https://firebase.google.com/docs/app-hosting/configure#cloud-run
 runConfig:
-  minInstances: 0
-  # maxInstances: 100
-  # concurrency: 80
-  # cpu: 1
-  # memoryMiB: 512
+  cpu: 1
+  memoryMiB: 512
 
-# Environment variables and secrets.
-env:
+# This tells Firebase to pull the secure key from the vault
+secrets:
   - variable: NEXT_PUBLIC_FIREBASE_API_KEY
-    value: AIzaSyAhYMQU6ZuSP2HkwnriwLdsyVWxodgoA5s
-    availability: ["BUILD", "RUNTIME"]
+    secret: firebaseApiKey
 
+# These variables are safe to be public
+env:
   - variable: NEXT_PUBLIC_FIREBASE_AUTH_DOMAIN
     value: growshare-capital-2.firebaseapp.com
     availability: ["BUILD", "RUNTIME"]
@@ -22,7 +18,7 @@ env:
     availability: ["BUILD", "RUNTIME"]
 
   - variable: NEXT_PUBLIC_FIREBASE_STORAGE_BUCKET
-    value: growshare-capital-2.appspot.com
+    value: growshare-capital-2.firebasestorage.app
     availability: ["BUILD", "RUNTIME"]
 
   - variable: NEXT_PUBLIC_FIREBASE_MESSAGING_SENDER_ID
@@ -32,5 +28,3 @@ env:
   - variable: NEXT_PUBLIC_FIREBASE_APP_ID
     value: 1:88609722519:web:28d0703adb470a2a1a99d2
     availability: ["BUILD", "RUNTIME"]
-
-sourceDir: .
