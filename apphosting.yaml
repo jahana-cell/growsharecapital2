@@ -5,25 +5,37 @@ runConfig:
 secrets:
   - variable: NEXT_PUBLIC_FIREBASE_API_KEY
     secret: firebaseApiKey
-    availability: ["BUILD", "RUNTIME"]
+    availability:
+      - BUILD
+      - RUNTIME
 
 env:
   - variable: NEXT_PUBLIC_FIREBASE_AUTH_DOMAIN
     value: growshare-capital-2.firebaseapp.com
-    availability: ["BUILD", "RUNTIME"]
+    availability:
+      - BUILD
+      - RUNTIME
 
   - variable: NEXT_PUBLIC_FIREBASE_PROJECT_ID
     value: growshare-capital-2
-    availability: ["BUILD", "RUNTIME"]
+    availability:
+      - BUILD
+      - RUNTIME
 
   - variable: NEXT_PUBLIC_FIREBASE_STORAGE_BUCKET
     value: growshare-capital-2.firebasestorage.app
-    availability: ["BUILD", "RUNTIME"]
+    availability:
+      - BUILD
+      - RUNTIME
 
   - variable: NEXT_PUBLIC_FIREBASE_MESSAGING_SENDER_ID
     value: 88609722519
-    availability: ["BUILD", "RUNTIME"]
+    availability:
+      - BUILD
+      - RUNTIME
 
   - variable: NEXT_PUBLIC_FIREBASE_APP_ID
     value: 1:88609722519:web:28d0703adb470a2a1a99d2
-    availability: ["BUILD", "RUNTIME"]
+    availability:
+      - BUILD
+      - RUNTIME
