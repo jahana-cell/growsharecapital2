@@ -578,3 +578,222 @@ For CI servers and headless environments, generate a new token with firebase log
 [debug] [2026-01-18T00:54:17.926Z] <<< [apiv2][body] GET https://firebaseapphosting.googleapis.com/v1beta/projects/growshare-capital-2/locations/us-central1/backends/growhsarecapital2-backened/traffic {"name":"projects/growshare-capital-2/locations/us-central1/backends/growhsarecapital2-backened/traffic","reconciling":false,"createTime":"2026-01-18T00:54:17.887072944Z","updateTime":"2026-01-16T16:53:54.717055Z","etag":"1Wu4x5vrknMMblJxCAdxe-8RrkiS5Oq97SszJe7oAuw","uid":"","current":{"splits":[{"build":"projects/88609722519/locations/us-central1/backends/growhsarecapital2-backened/builds/build-2026-01-16-001","percent":100}]}}
 [debug] [2026-01-18T00:54:17.951Z] <<< [apiv2][status] GET https://firebaseapphosting.googleapis.com/v1beta/projects/growshare-capital-2/locations/us-central1/backends/growhsarecapital2-backened/domains 200
 [debug] [2026-01-18T00:54:17.953Z] <<< [apiv2][body] GET https://firebaseapphosting.googleapis.com/v1beta/projects/growshare-capital-2/locations/us-central1/backends/growhsarecapital2-backened/domains {"domains":[{"name":"projects/growshare-capital-2/locations/us-central1/backends/growhsarecapital2-backened/domains/growhsarecapital2-backened--growshare-capital-2.us-central1.hosted.app","createTime":"2026-01-16T16:53:54.761985651Z","updateTime":"2026-01-16T16:53:54.717055Z","type":"DEFAULT","reconciling":false,"uid":"4c8309bc-8d90-4680-b668-a35421b3944d","etag":"Z6FPdkWXDuQexD3HUuXjdefI1lFyErit-AliFmNEqOk"}]}
+[error] Failed to fetch Firebase Project from Studio Workspace because WORKSPACE_SLUG environment variable is empty
+[error] Failed to fetch Firebase Project from Studio Workspace because WORKSPACE_SLUG environment variable is empty
+[debug] [2026-01-18T01:51:05.292Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform","https://www.googleapis.com/auth/userinfo.email"]
+[debug] [2026-01-18T01:51:05.297Z] > authorizing via signed-in user (info@growsharecapital.com)
+[debug] [2026-01-18T01:51:05.300Z] Checked if tokens are valid: false, expires at: 1768701255916
+[debug] [2026-01-18T01:51:05.303Z] Checked if tokens are valid: false, expires at: 1768701255916
+[debug] [2026-01-18T01:51:05.303Z] > refreshing access token with scopes: []
+[debug] [2026-01-18T01:51:05.311Z] >>> [apiv2][query] POST https://www.googleapis.com/oauth2/v3/token [none]
+[debug] [2026-01-18T01:51:05.312Z] >>> [apiv2][body] POST https://www.googleapis.com/oauth2/v3/token [omitted]
+[debug] [2026-01-18T01:51:05.432Z] <<< [apiv2][status] POST https://www.googleapis.com/oauth2/v3/token 200
+[debug] [2026-01-18T01:51:05.437Z] <<< [apiv2][body] POST https://www.googleapis.com/oauth2/v3/token [omitted]
+[debug] [2026-01-18T01:51:05.475Z] >>> [apiv2][query] GET https://cloudbilling.googleapis.com/v1/projects/growshare-capital-2/billingInfo [none]
+[debug] [2026-01-18T01:51:05.666Z] <<< [apiv2][status] GET https://cloudbilling.googleapis.com/v1/projects/growshare-capital-2/billingInfo 200
+[debug] [2026-01-18T01:51:05.666Z] <<< [apiv2][body] GET https://cloudbilling.googleapis.com/v1/projects/growshare-capital-2/billingInfo {"name":"projects/growshare-capital-2/billingInfo","projectId":"growshare-capital-2","billingAccountName":"billingAccounts/013503-46EC80-00C4B8","billingEnabled":true}
+[error] Failed to fetch Firebase Project from Studio Workspace because WORKSPACE_SLUG environment variable is empty
+[error] Failed to fetch Firebase Project from Studio Workspace because WORKSPACE_SLUG environment variable is empty
+[debug] [2026-01-18T01:51:05.680Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform","https://www.googleapis.com/auth/userinfo.email"]
+[debug] [2026-01-18T01:51:05.685Z] > authorizing via signed-in user (info@growsharecapital.com)
+[debug] [2026-01-18T01:51:05.686Z] Checked if tokens are valid: true, expires at: 1768704664437
+[debug] [2026-01-18T01:51:05.686Z] Checked if tokens are valid: true, expires at: 1768704664437
+[debug] [2026-01-18T01:51:05.686Z] >>> [apiv2][query] GET https://cloudbilling.googleapis.com/v1/projects/growshare-capital-2/billingInfo [none]
+[debug] [2026-01-18T01:51:05.791Z] <<< [apiv2][status] GET https://cloudbilling.googleapis.com/v1/projects/growshare-capital-2/billingInfo 200
+[debug] [2026-01-18T01:51:05.792Z] <<< [apiv2][body] GET https://cloudbilling.googleapis.com/v1/projects/growshare-capital-2/billingInfo {"name":"projects/growshare-capital-2/billingInfo","projectId":"growshare-capital-2","billingAccountName":"billingAccounts/013503-46EC80-00C4B8","billingEnabled":true}
+[debug] [2026-01-18T01:51:05.820Z] >>> [apiv2][query] POST https://auth.firebase.tools/attest [none]
+[debug] [2026-01-18T01:51:05.821Z] >>> [apiv2][body] POST https://auth.firebase.tools/attest {"session_id":"2a2c8e5c-dc6d-4ac6-9cf0-a73bff9e722d"}
+[debug] [2026-01-18T01:51:06.004Z] <<< [apiv2][status] POST https://auth.firebase.tools/attest 200
+[debug] [2026-01-18T01:51:06.012Z] <<< [apiv2][body] POST https://auth.firebase.tools/attest {"token":"smnqEjwZmq3FO8vCWJ6Vfy-bsXeDwjPCZJbOdq0R8Yo"}
+[error] Failed to fetch Firebase Project from Studio Workspace because WORKSPACE_SLUG environment variable is empty
+[error] Failed to fetch Firebase Project from Studio Workspace because WORKSPACE_SLUG environment variable is empty
+[debug] [2026-01-18T01:51:08.420Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform","https://www.googleapis.com/auth/userinfo.email"]
+[debug] [2026-01-18T01:51:08.421Z] > authorizing via signed-in user (info@growsharecapital.com)
+[debug] [2026-01-18T01:51:08.421Z] Checked if tokens are valid: true, expires at: 1768704664437
+[debug] [2026-01-18T01:51:08.421Z] Checked if tokens are valid: true, expires at: 1768704664437
+[debug] [2026-01-18T01:51:08.421Z] >>> [apiv2][query] GET https://cloudbilling.googleapis.com/v1/projects/growshare-capital-2/billingInfo [none]
+[debug] [2026-01-18T01:51:08.655Z] <<< [apiv2][status] GET https://cloudbilling.googleapis.com/v1/projects/growshare-capital-2/billingInfo 200
+[debug] [2026-01-18T01:51:08.656Z] <<< [apiv2][body] GET https://cloudbilling.googleapis.com/v1/projects/growshare-capital-2/billingInfo {"name":"projects/growshare-capital-2/billingInfo","projectId":"growshare-capital-2","billingAccountName":"billingAccounts/013503-46EC80-00C4B8","billingEnabled":true}
+[error] Failed to fetch Firebase Project from Studio Workspace because WORKSPACE_SLUG environment variable is empty
+[error] Failed to fetch Firebase Project from Studio Workspace because WORKSPACE_SLUG environment variable is empty
+[debug] [2026-01-18T01:51:08.668Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform","https://www.googleapis.com/auth/userinfo.email"]
+[debug] [2026-01-18T01:51:08.668Z] > authorizing via signed-in user (info@growsharecapital.com)
+[debug] [2026-01-18T01:51:08.669Z] Checked if tokens are valid: true, expires at: 1768704664437
+[debug] [2026-01-18T01:51:08.669Z] Checked if tokens are valid: true, expires at: 1768704664437
+[debug] [2026-01-18T01:51:08.669Z] >>> [apiv2][query] GET https://cloudbilling.googleapis.com/v1/projects/growshare-capital-2/billingInfo [none]
+[debug] [2026-01-18T01:51:08.743Z] <<< [apiv2][status] GET https://cloudbilling.googleapis.com/v1/projects/growshare-capital-2/billingInfo 200
+[debug] [2026-01-18T01:51:08.743Z] <<< [apiv2][body] GET https://cloudbilling.googleapis.com/v1/projects/growshare-capital-2/billingInfo {"name":"projects/growshare-capital-2/billingInfo","projectId":"growshare-capital-2","billingAccountName":"billingAccounts/013503-46EC80-00C4B8","billingEnabled":true}
+[debug] [2026-01-18T01:51:08.752Z] >>> [apiv2][query] POST https://auth.firebase.tools/attest [none]
+[debug] [2026-01-18T01:51:08.752Z] >>> [apiv2][body] POST https://auth.firebase.tools/attest {"session_id":"84aebd52-7f02-4cc5-bf19-42c5a2fe8656"}
+[debug] [2026-01-18T01:51:08.916Z] <<< [apiv2][status] POST https://auth.firebase.tools/attest 200
+[debug] [2026-01-18T01:51:08.917Z] <<< [apiv2][body] POST https://auth.firebase.tools/attest {"token":"Agw6pkrNTXTUCxfOJhyzWiyDD8vIeX0uXatY4R2O1xw"}
+[error] Failed to fetch Firebase Project from Studio Workspace because WORKSPACE_SLUG environment variable is empty
+[error] Failed to fetch Firebase Project from Studio Workspace because WORKSPACE_SLUG environment variable is empty
+[debug] [2026-01-18T01:55:30.979Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform","https://www.googleapis.com/auth/userinfo.email"]
+[debug] [2026-01-18T01:55:30.979Z] > authorizing via signed-in user (info@growsharecapital.com)
+[debug] [2026-01-18T01:55:30.986Z] Checked if tokens are valid: true, expires at: 1768704664437
+[debug] [2026-01-18T01:55:30.986Z] Checked if tokens are valid: true, expires at: 1768704664437
+[debug] [2026-01-18T01:55:30.986Z] >>> [apiv2][query] GET https://cloudbilling.googleapis.com/v1/projects/growshare-capital-2/billingInfo [none]
+[debug] [2026-01-18T01:55:31.108Z] <<< [apiv2][status] GET https://cloudbilling.googleapis.com/v1/projects/growshare-capital-2/billingInfo 200
+[debug] [2026-01-18T01:55:31.111Z] <<< [apiv2][body] GET https://cloudbilling.googleapis.com/v1/projects/growshare-capital-2/billingInfo {"name":"projects/growshare-capital-2/billingInfo","projectId":"growshare-capital-2","billingAccountName":"billingAccounts/013503-46EC80-00C4B8","billingEnabled":true}
+[error] Failed to fetch Firebase Project from Studio Workspace because WORKSPACE_SLUG environment variable is empty
+[error] Failed to fetch Firebase Project from Studio Workspace because WORKSPACE_SLUG environment variable is empty
+[debug] [2026-01-18T01:55:31.127Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform","https://www.googleapis.com/auth/userinfo.email"]
+[debug] [2026-01-18T01:55:31.127Z] > authorizing via signed-in user (info@growsharecapital.com)
+[debug] [2026-01-18T01:55:31.127Z] Checked if tokens are valid: true, expires at: 1768704664437
+[debug] [2026-01-18T01:55:31.132Z] Checked if tokens are valid: true, expires at: 1768704664437
+[debug] [2026-01-18T01:55:31.132Z] >>> [apiv2][query] GET https://cloudbilling.googleapis.com/v1/projects/growshare-capital-2/billingInfo [none]
+[debug] [2026-01-18T01:55:31.237Z] <<< [apiv2][status] GET https://cloudbilling.googleapis.com/v1/projects/growshare-capital-2/billingInfo 200
+[debug] [2026-01-18T01:55:31.237Z] <<< [apiv2][body] GET https://cloudbilling.googleapis.com/v1/projects/growshare-capital-2/billingInfo {"name":"projects/growshare-capital-2/billingInfo","projectId":"growshare-capital-2","billingAccountName":"billingAccounts/013503-46EC80-00C4B8","billingEnabled":true}
+[debug] [2026-01-18T01:55:31.252Z] >>> [apiv2][query] POST https://accounts.google.com/o/oauth2/token [none]
+[debug] [2026-01-18T01:55:31.252Z] >>> [apiv2][body] POST https://accounts.google.com/o/oauth2/token [omitted]
+[debug] [2026-01-18T01:55:31.351Z] <<< [apiv2][status] POST https://accounts.google.com/o/oauth2/token 200
+[debug] [2026-01-18T01:55:31.351Z] <<< [apiv2][body] POST https://accounts.google.com/o/oauth2/token [omitted]
+[error] Failed to fetch Firebase Project from Studio Workspace because WORKSPACE_SLUG environment variable is empty
+[error] Failed to fetch Firebase Project from Studio Workspace because WORKSPACE_SLUG environment variable is empty
+[debug] [2026-01-18T01:56:39.169Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform","https://www.googleapis.com/auth/userinfo.email"]
+[debug] [2026-01-18T01:56:39.170Z] > authorizing via signed-in user (info@growsharecapital.com)
+[debug] [2026-01-18T01:56:39.170Z] Checked if tokens are valid: true, expires at: 1768704930352
+[debug] [2026-01-18T01:56:39.170Z] Checked if tokens are valid: true, expires at: 1768704930352
+[debug] [2026-01-18T01:56:39.170Z] >>> [apiv2][query] GET https://cloudbilling.googleapis.com/v1/projects/growshare-capital-2/billingInfo [none]
+[debug] [2026-01-18T01:56:39.313Z] <<< [apiv2][status] GET https://cloudbilling.googleapis.com/v1/projects/growshare-capital-2/billingInfo 200
+[debug] [2026-01-18T01:56:39.313Z] <<< [apiv2][body] GET https://cloudbilling.googleapis.com/v1/projects/growshare-capital-2/billingInfo {"name":"projects/growshare-capital-2/billingInfo","projectId":"growshare-capital-2","billingAccountName":"billingAccounts/013503-46EC80-00C4B8","billingEnabled":true}
+[error] Failed to fetch Firebase Project from Studio Workspace because WORKSPACE_SLUG environment variable is empty
+[error] Failed to fetch Firebase Project from Studio Workspace because WORKSPACE_SLUG environment variable is empty
+[debug] [2026-01-18T01:56:39.322Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform","https://www.googleapis.com/auth/userinfo.email"]
+[debug] [2026-01-18T01:56:39.322Z] > authorizing via signed-in user (info@growsharecapital.com)
+[debug] [2026-01-18T01:56:39.325Z] Checked if tokens are valid: true, expires at: 1768704930352
+[debug] [2026-01-18T01:56:39.325Z] Checked if tokens are valid: true, expires at: 1768704930352
+[debug] [2026-01-18T01:56:39.325Z] >>> [apiv2][query] GET https://cloudbilling.googleapis.com/v1/projects/growshare-capital-2/billingInfo [none]
+[debug] [2026-01-18T01:56:39.433Z] <<< [apiv2][status] GET https://cloudbilling.googleapis.com/v1/projects/growshare-capital-2/billingInfo 200
+[debug] [2026-01-18T01:56:39.436Z] <<< [apiv2][body] GET https://cloudbilling.googleapis.com/v1/projects/growshare-capital-2/billingInfo {"name":"projects/growshare-capital-2/billingInfo","projectId":"growshare-capital-2","billingAccountName":"billingAccounts/013503-46EC80-00C4B8","billingEnabled":true}
+[debug] [2026-01-18T01:56:39.437Z] Checked if tokens are valid: true, expires at: 1768704930352
+[debug] [2026-01-18T01:56:39.437Z] Checked if tokens are valid: true, expires at: 1768704930352
+[debug] [2026-01-18T01:56:39.443Z] >>> [apiv2][query] GET https://firebaseapphosting.googleapis.com/v1beta/projects/growshare-capital-2/locations/-/backends 
+[debug] [2026-01-18T01:56:39.875Z] <<< [apiv2][status] GET https://firebaseapphosting.googleapis.com/v1beta/projects/growshare-capital-2/locations/-/backends 200
+[debug] [2026-01-18T01:56:39.880Z] <<< [apiv2][body] GET https://firebaseapphosting.googleapis.com/v1beta/projects/growshare-capital-2/locations/-/backends {"backends":[{"name":"projects/growshare-capital-2/locations/us-central1/backends/growhsarecapital2-backened","createTime":"2026-01-16T16:53:54.441247293Z","updateTime":"2026-01-18T01:37:10.067875Z","labels":{"deployment-tool":"cli-firebase--project-idx"},"uri":"growhsarecapital2-backened--growshare-capital-2.us-central1.hosted.app","managedResources":[{"runService":{"service":"projects/88609722519/locations/us-central1/services/growhsarecapital2-backened"}}],"codebase":{"repository":"projects/growshare-capital-2/locations/us-central1/connections/apphosting-github-conn-tlirfjr/gitRepositoryLinks/jahana-cell-growsharecapital2","rootDirectory":"/"},"uid":"a0e7280d-4c27-4a17-89a8-db725969eaa9","etag":"vE1s8D-vo6WTvV64V1icoDzY1yOMYsa3TTjjypV8qmY","reconciling":false,"servingLocality":"GLOBAL_ACCESS","serviceAccount":"firebase-app-hosting-compute@growshare-capital-2.iam.gserviceaccount.com","appId":"1:88609722519:web:28d0703adb470a2a1a99d2"}]}
+[debug] [2026-01-18T01:56:39.880Z] Checked if tokens are valid: true, expires at: 1768704930352
+[debug] [2026-01-18T01:56:39.880Z] Checked if tokens are valid: true, expires at: 1768704930352
+[debug] [2026-01-18T01:56:39.887Z] Checked if tokens are valid: true, expires at: 1768704930352
+[debug] [2026-01-18T01:56:39.887Z] Checked if tokens are valid: true, expires at: 1768704930352
+[debug] [2026-01-18T01:56:39.887Z] >>> [apiv2][query] GET https://firebaseapphosting.googleapis.com/v1beta/projects/growshare-capital-2/locations/us-central1/backends/growhsarecapital2-backened/traffic [none]
+[debug] [2026-01-18T01:56:39.888Z] >>> [apiv2][query] GET https://firebaseapphosting.googleapis.com/v1beta/projects/growshare-capital-2/locations/us-central1/backends/growhsarecapital2-backened/domains pageSize=100
+[debug] [2026-01-18T01:56:40.178Z] <<< [apiv2][status] GET https://firebaseapphosting.googleapis.com/v1beta/projects/growshare-capital-2/locations/us-central1/backends/growhsarecapital2-backened/domains 200
+[debug] [2026-01-18T01:56:40.178Z] <<< [apiv2][body] GET https://firebaseapphosting.googleapis.com/v1beta/projects/growshare-capital-2/locations/us-central1/backends/growhsarecapital2-backened/domains {"domains":[{"name":"projects/growshare-capital-2/locations/us-central1/backends/growhsarecapital2-backened/domains/growhsarecapital2-backened--growshare-capital-2.us-central1.hosted.app","createTime":"2026-01-16T16:53:54.761985651Z","updateTime":"2026-01-16T16:53:54.717055Z","type":"DEFAULT","reconciling":false,"uid":"4c8309bc-8d90-4680-b668-a35421b3944d","etag":"Z6FPdkWXDuQexD3HUuXjdefI1lFyErit-AliFmNEqOk"}]}
+[debug] [2026-01-18T01:56:40.192Z] <<< [apiv2][status] GET https://firebaseapphosting.googleapis.com/v1beta/projects/growshare-capital-2/locations/us-central1/backends/growhsarecapital2-backened/traffic 200
+[debug] [2026-01-18T01:56:40.192Z] <<< [apiv2][body] GET https://firebaseapphosting.googleapis.com/v1beta/projects/growshare-capital-2/locations/us-central1/backends/growhsarecapital2-backened/traffic {"name":"projects/growshare-capital-2/locations/us-central1/backends/growhsarecapital2-backened/traffic","rolloutPolicy":{"codebaseBranch":"main"},"reconciling":false,"createTime":"2026-01-18T01:34:21.994905528Z","updateTime":"2026-01-16T16:53:54.717055Z","etag":"QFUVqexQR1ElMl3MvJ-B5UPK3dSkzHahcsCLPnpU42A","uid":"93e49a99-bdf0-4333-b3b0-c97f9a81eea7","current":{"splits":[{"build":"projects/88609722519/locations/us-central1/backends/growhsarecapital2-backened/builds/build-2026-01-16-001","percent":100}]}}
+[error] Failed to fetch Firebase Project from Studio Workspace because WORKSPACE_SLUG environment variable is empty
+[error] Failed to fetch Firebase Project from Studio Workspace because WORKSPACE_SLUG environment variable is empty
+[error] Failed to fetch Firebase Project from Studio Workspace because WORKSPACE_SLUG environment variable is empty
+[error] Failed to fetch Firebase Project from Studio Workspace because WORKSPACE_SLUG environment variable is empty
+[debug] [2026-01-18T02:09:07.799Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform","https://www.googleapis.com/auth/userinfo.email"]
+[debug] [2026-01-18T02:09:07.800Z] > authorizing via signed-in user (info@growsharecapital.com)
+[debug] [2026-01-18T02:09:07.803Z] Checked if tokens are valid: true, expires at: 1768704930352
+[debug] [2026-01-18T02:09:07.804Z] Checked if tokens are valid: true, expires at: 1768704930352
+[debug] [2026-01-18T02:09:07.804Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform","https://www.googleapis.com/auth/userinfo.email"]
+[debug] [2026-01-18T02:09:07.804Z] > authorizing via signed-in user (info@growsharecapital.com)
+[debug] [2026-01-18T02:09:07.805Z] Checked if tokens are valid: true, expires at: 1768704930352
+[debug] [2026-01-18T02:09:07.805Z] Checked if tokens are valid: true, expires at: 1768704930352
+[debug] [2026-01-18T02:09:07.807Z] >>> [apiv2][query] GET https://cloudbilling.googleapis.com/v1/projects/growshare-capital-2/billingInfo [none]
+[debug] [2026-01-18T02:09:07.869Z] >>> [apiv2][query] GET https://cloudbilling.googleapis.com/v1/projects/growshare-capital-2/billingInfo [none]
+[debug] [2026-01-18T02:09:08.036Z] <<< [apiv2][status] GET https://cloudbilling.googleapis.com/v1/projects/growshare-capital-2/billingInfo 200
+[debug] [2026-01-18T02:09:08.040Z] <<< [apiv2][body] GET https://cloudbilling.googleapis.com/v1/projects/growshare-capital-2/billingInfo {"name":"projects/growshare-capital-2/billingInfo","projectId":"growshare-capital-2","billingAccountName":"billingAccounts/013503-46EC80-00C4B8","billingEnabled":true}
+[debug] [2026-01-18T02:09:08.080Z] Checked if tokens are valid: true, expires at: 1768704930352
+[debug] [2026-01-18T02:09:08.080Z] Checked if tokens are valid: true, expires at: 1768704930352
+[debug] [2026-01-18T02:09:08.082Z] Checked if tokens are valid: true, expires at: 1768704930352
+[debug] [2026-01-18T02:09:08.082Z] Checked if tokens are valid: true, expires at: 1768704930352
+[debug] [2026-01-18T02:09:08.114Z] Checked if tokens are valid: true, expires at: 1768704930352
+[debug] [2026-01-18T02:09:08.114Z] Checked if tokens are valid: true, expires at: 1768704930352
+[debug] [2026-01-18T02:09:08.114Z] >>> [apiv2][query] GET https://serviceusage.googleapis.com/v1/projects/growshare-capital-2/services/firestore.googleapis.com [none]
+[debug] [2026-01-18T02:09:08.115Z] >>> [apiv2][(partial)header] GET https://serviceusage.googleapis.com/v1/projects/growshare-capital-2/services/firestore.googleapis.com x-goog-quota-user=projects/growshare-capital-2
+[debug] [2026-01-18T02:09:08.119Z] >>> [apiv2][query] GET https://serviceusage.googleapis.com/v1/projects/growshare-capital-2/services/firebasedataconnect.googleapis.com [none]
+[debug] [2026-01-18T02:09:08.120Z] >>> [apiv2][(partial)header] GET https://serviceusage.googleapis.com/v1/projects/growshare-capital-2/services/firebasedataconnect.googleapis.com x-goog-quota-user=projects/growshare-capital-2
+[debug] [2026-01-18T02:09:08.125Z] >>> [apiv2][query] GET https://serviceusage.googleapis.com/v1/projects/growshare-capital-2/services/firebaseio.com [none]
+[debug] [2026-01-18T02:09:08.126Z] >>> [apiv2][(partial)header] GET https://serviceusage.googleapis.com/v1/projects/growshare-capital-2/services/firebaseio.com x-goog-quota-user=projects/growshare-capital-2
+[debug] [2026-01-18T02:09:08.259Z] <<< [apiv2][status] GET https://cloudbilling.googleapis.com/v1/projects/growshare-capital-2/billingInfo 200
+[debug] [2026-01-18T02:09:08.260Z] <<< [apiv2][body] GET https://cloudbilling.googleapis.com/v1/projects/growshare-capital-2/billingInfo {"name":"projects/growshare-capital-2/billingInfo","projectId":"growshare-capital-2","billingAccountName":"billingAccounts/013503-46EC80-00C4B8","billingEnabled":true}
+[debug] [2026-01-18T02:09:08.262Z] Checked if tokens are valid: true, expires at: 1768704930352
+[debug] [2026-01-18T02:09:08.267Z] Checked if tokens are valid: true, expires at: 1768704930352
+[debug] [2026-01-18T02:09:08.271Z] Checked if tokens are valid: true, expires at: 1768704930352
+[debug] [2026-01-18T02:09:08.271Z] Checked if tokens are valid: true, expires at: 1768704930352
+[debug] [2026-01-18T02:09:08.287Z] Checked if tokens are valid: true, expires at: 1768704930352
+[debug] [2026-01-18T02:09:08.287Z] Checked if tokens are valid: true, expires at: 1768704930352
+[debug] [2026-01-18T02:09:08.288Z] >>> [apiv2][query] GET https://serviceusage.googleapis.com/v1/projects/growshare-capital-2/services/firestore.googleapis.com [none]
+[debug] [2026-01-18T02:09:08.288Z] >>> [apiv2][(partial)header] GET https://serviceusage.googleapis.com/v1/projects/growshare-capital-2/services/firestore.googleapis.com x-goog-quota-user=projects/growshare-capital-2
+[debug] [2026-01-18T02:09:08.291Z] >>> [apiv2][query] GET https://serviceusage.googleapis.com/v1/projects/growshare-capital-2/services/firebasedataconnect.googleapis.com [none]
+[debug] [2026-01-18T02:09:08.292Z] >>> [apiv2][(partial)header] GET https://serviceusage.googleapis.com/v1/projects/growshare-capital-2/services/firebasedataconnect.googleapis.com x-goog-quota-user=projects/growshare-capital-2
+[debug] [2026-01-18T02:09:08.296Z] >>> [apiv2][query] GET https://serviceusage.googleapis.com/v1/projects/growshare-capital-2/services/firebaseio.com [none]
+[debug] [2026-01-18T02:09:08.297Z] >>> [apiv2][(partial)header] GET https://serviceusage.googleapis.com/v1/projects/growshare-capital-2/services/firebaseio.com x-goog-quota-user=projects/growshare-capital-2
+[debug] [2026-01-18T02:09:08.401Z] <<< [apiv2][status] GET https://serviceusage.googleapis.com/v1/projects/growshare-capital-2/services/firebaseio.com 403
+[debug] [2026-01-18T02:09:08.401Z] <<< [apiv2][body] GET https://serviceusage.googleapis.com/v1/projects/growshare-capital-2/services/firebaseio.com [omitted]
+[debug] [2026-01-18T02:09:08.519Z] <<< [apiv2][status] GET https://serviceusage.googleapis.com/v1/projects/growshare-capital-2/services/firebasedataconnect.googleapis.com 200
+[debug] [2026-01-18T02:09:08.519Z] <<< [apiv2][body] GET https://serviceusage.googleapis.com/v1/projects/growshare-capital-2/services/firebasedataconnect.googleapis.com [omitted]
+[debug] [2026-01-18T02:09:08.547Z] <<< [apiv2][status] GET https://serviceusage.googleapis.com/v1/projects/growshare-capital-2/services/firestore.googleapis.com 200
+[debug] [2026-01-18T02:09:08.547Z] <<< [apiv2][body] GET https://serviceusage.googleapis.com/v1/projects/growshare-capital-2/services/firestore.googleapis.com [omitted]
+[debug] [2026-01-18T02:09:08.560Z] <<< [apiv2][status] GET https://serviceusage.googleapis.com/v1/projects/growshare-capital-2/services/firebaseio.com 403
+[debug] [2026-01-18T02:09:08.560Z] <<< [apiv2][body] GET https://serviceusage.googleapis.com/v1/projects/growshare-capital-2/services/firebaseio.com [omitted]
+[debug] [2026-01-18T02:09:08.638Z] <<< [apiv2][status] GET https://serviceusage.googleapis.com/v1/projects/growshare-capital-2/services/firebasedataconnect.googleapis.com 200
+[debug] [2026-01-18T02:09:08.644Z] <<< [apiv2][body] GET https://serviceusage.googleapis.com/v1/projects/growshare-capital-2/services/firebasedataconnect.googleapis.com [omitted]
+[debug] [2026-01-18T02:09:08.660Z] <<< [apiv2][status] GET https://serviceusage.googleapis.com/v1/projects/growshare-capital-2/services/firestore.googleapis.com 200
+[debug] [2026-01-18T02:09:08.660Z] <<< [apiv2][body] GET https://serviceusage.googleapis.com/v1/projects/growshare-capital-2/services/firestore.googleapis.com [omitted]
+[error] Failed to fetch Firebase Project from Studio Workspace because WORKSPACE_SLUG environment variable is empty
+[error] Failed to fetch Firebase Project from Studio Workspace because WORKSPACE_SLUG environment variable is empty
+[error] Failed to fetch Firebase Project from Studio Workspace because WORKSPACE_SLUG environment variable is empty
+[debug] [2026-01-18T02:09:08.666Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform","https://www.googleapis.com/auth/userinfo.email"]
+[debug] [2026-01-18T02:09:08.666Z] > authorizing via signed-in user (info@growsharecapital.com)
+[debug] [2026-01-18T02:09:08.667Z] Checked if tokens are valid: true, expires at: 1768704930352
+[debug] [2026-01-18T02:09:08.667Z] Checked if tokens are valid: true, expires at: 1768704930352
+[debug] [2026-01-18T02:09:08.667Z] >>> [apiv2][query] GET https://cloudbilling.googleapis.com/v1/projects/growshare-capital-2/billingInfo [none]
+[debug] [2026-01-18T02:09:08.734Z] <<< [apiv2][status] GET https://cloudbilling.googleapis.com/v1/projects/growshare-capital-2/billingInfo 200
+[debug] [2026-01-18T02:09:08.734Z] <<< [apiv2][body] GET https://cloudbilling.googleapis.com/v1/projects/growshare-capital-2/billingInfo {"name":"projects/growshare-capital-2/billingInfo","projectId":"growshare-capital-2","billingAccountName":"billingAccounts/013503-46EC80-00C4B8","billingEnabled":true}
+[error] Failed to fetch Firebase Project from Studio Workspace because WORKSPACE_SLUG environment variable is empty
+[debug] [2026-01-18T02:09:08.745Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform","https://www.googleapis.com/auth/userinfo.email"]
+[debug] [2026-01-18T02:09:08.746Z] > authorizing via signed-in user (info@growsharecapital.com)
+[error] Failed to fetch Firebase Project from Studio Workspace because WORKSPACE_SLUG environment variable is empty
+[error] Failed to fetch Firebase Project from Studio Workspace because WORKSPACE_SLUG environment variable is empty
+[error] Failed to fetch Firebase Project from Studio Workspace because WORKSPACE_SLUG environment variable is empty
+[debug] [2026-01-18T02:09:08.780Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform","https://www.googleapis.com/auth/userinfo.email"]
+[debug] [2026-01-18T02:09:08.780Z] > authorizing via signed-in user (info@growsharecapital.com)
+[debug] [2026-01-18T02:09:08.781Z] Checked if tokens are valid: true, expires at: 1768704930352
+[debug] [2026-01-18T02:09:08.781Z] Checked if tokens are valid: true, expires at: 1768704930352
+[debug] [2026-01-18T02:09:08.781Z] >>> [apiv2][query] GET https://cloudbilling.googleapis.com/v1/projects/growshare-capital-2/billingInfo [none]
+[error] Failed to fetch Firebase Project from Studio Workspace because WORKSPACE_SLUG environment variable is empty
+[error] Failed to fetch Firebase Project from Studio Workspace because WORKSPACE_SLUG environment variable is empty
+[error] Failed to fetch Firebase Project from Studio Workspace because WORKSPACE_SLUG environment variable is empty
+[debug] [2026-01-18T02:09:08.794Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform","https://www.googleapis.com/auth/userinfo.email"]
+[debug] [2026-01-18T02:09:08.794Z] > authorizing via signed-in user (info@growsharecapital.com)
+[debug] [2026-01-18T02:09:08.795Z] Checked if tokens are valid: true, expires at: 1768704930352
+[debug] [2026-01-18T02:09:08.795Z] Checked if tokens are valid: true, expires at: 1768704930352
+[debug] [2026-01-18T02:09:08.795Z] >>> [apiv2][query] GET https://cloudbilling.googleapis.com/v1/projects/growshare-capital-2/billingInfo [none]
+[debug] [2026-01-18T02:09:08.863Z] <<< [apiv2][status] GET https://cloudbilling.googleapis.com/v1/projects/growshare-capital-2/billingInfo 200
+[debug] [2026-01-18T02:09:08.863Z] <<< [apiv2][body] GET https://cloudbilling.googleapis.com/v1/projects/growshare-capital-2/billingInfo {"name":"projects/growshare-capital-2/billingInfo","projectId":"growshare-capital-2","billingAccountName":"billingAccounts/013503-46EC80-00C4B8","billingEnabled":true}
+[error] Failed to fetch Firebase Project from Studio Workspace because WORKSPACE_SLUG environment variable is empty
+[debug] [2026-01-18T02:09:08.868Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform","https://www.googleapis.com/auth/userinfo.email"]
+[debug] [2026-01-18T02:09:08.868Z] > authorizing via signed-in user (info@growsharecapital.com)
+[debug] [2026-01-18T02:09:08.882Z] <<< [apiv2][status] GET https://cloudbilling.googleapis.com/v1/projects/growshare-capital-2/billingInfo 200
+[debug] [2026-01-18T02:09:08.882Z] <<< [apiv2][body] GET https://cloudbilling.googleapis.com/v1/projects/growshare-capital-2/billingInfo {"name":"projects/growshare-capital-2/billingInfo","projectId":"growshare-capital-2","billingAccountName":"billingAccounts/013503-46EC80-00C4B8","billingEnabled":true}
+[error] Failed to fetch Firebase Project from Studio Workspace because WORKSPACE_SLUG environment variable is empty
+[debug] [2026-01-18T02:09:08.887Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform","https://www.googleapis.com/auth/userinfo.email"]
+[debug] [2026-01-18T02:09:08.890Z] > authorizing via signed-in user (info@growsharecapital.com)
+[error] Failed to fetch Firebase Project from Studio Workspace because WORKSPACE_SLUG environment variable is empty
+[error] Failed to fetch Firebase Project from Studio Workspace because WORKSPACE_SLUG environment variable is empty
+[debug] [2026-01-18T02:21:00.580Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform","https://www.googleapis.com/auth/userinfo.email"]
+[debug] [2026-01-18T02:21:00.580Z] > authorizing via signed-in user (info@growsharecapital.com)
+[debug] [2026-01-18T02:21:00.589Z] Checked if tokens are valid: true, expires at: 1768704930352
+[debug] [2026-01-18T02:21:00.589Z] Checked if tokens are valid: true, expires at: 1768704930352
+[debug] [2026-01-18T02:21:00.593Z] >>> [apiv2][query] GET https://cloudbilling.googleapis.com/v1/projects/growshare-capital-2/billingInfo [none]
+[debug] [2026-01-18T02:21:00.741Z] <<< [apiv2][status] GET https://cloudbilling.googleapis.com/v1/projects/growshare-capital-2/billingInfo 200
+[debug] [2026-01-18T02:21:00.748Z] <<< [apiv2][body] GET https://cloudbilling.googleapis.com/v1/projects/growshare-capital-2/billingInfo {"name":"projects/growshare-capital-2/billingInfo","projectId":"growshare-capital-2","billingAccountName":"billingAccounts/013503-46EC80-00C4B8","billingEnabled":true}
+[error] Failed to fetch Firebase Project from Studio Workspace because WORKSPACE_SLUG environment variable is empty
+[error] Failed to fetch Firebase Project from Studio Workspace because WORKSPACE_SLUG environment variable is empty
+[debug] [2026-01-18T02:21:00.763Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform","https://www.googleapis.com/auth/userinfo.email"]
+[debug] [2026-01-18T02:21:00.763Z] > authorizing via signed-in user (info@growsharecapital.com)
+[debug] [2026-01-18T02:21:00.763Z] Checked if tokens are valid: true, expires at: 1768704930352
+[debug] [2026-01-18T02:21:00.763Z] Checked if tokens are valid: true, expires at: 1768704930352
+[debug] [2026-01-18T02:21:00.763Z] >>> [apiv2][query] GET https://cloudbilling.googleapis.com/v1/projects/growshare-capital-2/billingInfo [none]
+[debug] [2026-01-18T02:21:00.828Z] <<< [apiv2][status] GET https://cloudbilling.googleapis.com/v1/projects/growshare-capital-2/billingInfo 200
+[debug] [2026-01-18T02:21:00.828Z] <<< [apiv2][body] GET https://cloudbilling.googleapis.com/v1/projects/growshare-capital-2/billingInfo {"name":"projects/growshare-capital-2/billingInfo","projectId":"growshare-capital-2","billingAccountName":"billingAccounts/013503-46EC80-00C4B8","billingEnabled":true}
+[debug] [2026-01-18T02:21:00.847Z] >>> [apiv2][query] POST https://auth.firebase.tools/attest [none]
+[debug] [2026-01-18T02:21:00.847Z] >>> [apiv2][body] POST https://auth.firebase.tools/attest {"session_id":"98b6da42-933e-4732-9186-7ad0a2ddcc5e"}
+[debug] [2026-01-18T02:21:01.018Z] <<< [apiv2][status] POST https://auth.firebase.tools/attest 200
+[debug] [2026-01-18T02:21:01.020Z] <<< [apiv2][body] POST https://auth.firebase.tools/attest {"token":"e45eXPLPEpX62mCm98r0AqHjyjA0OMiAZ3lYkWu74Ak"}
