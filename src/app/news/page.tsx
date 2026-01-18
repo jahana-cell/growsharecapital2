@@ -11,7 +11,7 @@ export default function NewsPage() {
   const [stories, setStories] = useState<Story[]>(storiesData);
   const [filter, setFilter] = useState('All');
 
-  const categories = ['All', ...new Set(storiesData.map(s => s.category))];
+  const categories = ['All', ...Array.from(new Set(storiesData.map(s => s.category)))];
 
   const filteredStories = stories.filter(story => 
     filter === 'All' || story.category === filter

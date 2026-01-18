@@ -18,7 +18,7 @@ import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
 import { Separator } from '@/components/ui/separator';
 import { Card, CardContent, CardHeader } from '@/components/ui/card';
-import { INVESTMENT_TERMS } from '@/lib/constants';
+import { investmentPhilosophy } from '@/lib/constants';
 
 const FadeIn = ({ children, delay = 0 }: { children: React.ReactNode, delay?: number }) => (
   <motion.div
@@ -199,7 +199,7 @@ export default function LivestockInvestmentClientPage() {
                             </div>
                              <div className="flex items-start gap-4">
                                 <div className="p-3 bg-stone-100 border border-stone-200 rounded-lg mt-1"><Handshake className="w-5 h-5 text-neutral-800" /></div>
-                                <div><h4 className="font-bold font-sans">Community-Driven Impact</h4><p className="text-sm text-neutral-500 font-light">Empower local farmers and build a resilient food economy.</p></div>
+                                <div><h4 className="font-bold font-sans">Community-Driven Impact</h4><p className="text-sm text-neutral-500 font-.light">Empower local farmers and build a resilient food economy.</p></div>
                             </div>
                         </CardContent>
                     </Card>

@@ -14,7 +14,7 @@ import {
 import { 
   Accordion, AccordionContent, AccordionItem, AccordionTrigger 
 } from "@/components/ui/accordion";
-import SocialIcons from './social-icons'; // Import the new component
+import { SocialIcons } from './social-icons'; // Import the new component
 import { Cart } from "./cart"; 
 import { SearchComponent } from "./search-component"; 
 import { useAuth } from "@/context/auth-context";

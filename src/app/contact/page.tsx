@@ -6,7 +6,7 @@ import { useSearchParams } from 'next/navigation';
 import { motion } from 'framer-motion';
 import { Mail, Phone, MapPin, ArrowUpRight } from 'lucide-react';
 import InquiryForm from '@/components/inquiry-form'; 
-import SocialIcons from '@/components/social-icons'; 
+import { SocialIcons } from '@/components/social-icons'; 
 
 function ContactContent() {
   const searchParams = useSearchParams();

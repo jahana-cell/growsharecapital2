@@ -1,23 +1,25 @@
-import Link from "next/link";
-import { socialLinks } from "@/lib/constants";
+import Link from 'next/link';
+import { socialLinks } from '@/lib/constants';
 
-const SocialIcons = ({ iconClassName }: { iconClassName?: string }) => {
+interface SocialIconsProps {
+  iconClassName?: string;
+}
+
+export const SocialIcons = ({ iconClassName = 'w-5 h-5 text-stone-400 hover:text-gold-accent transition-colors' }: SocialIconsProps) => {
   return (
-    <div className="flex items-center gap-4">
+    <div className="flex items-center gap-6">
       {socialLinks.map((social) => (
         <Link
           key={social.href}
           href={social.href}
-          aria-label={social.ariaLabel}
+          aria-label={social.name}
           target="_blank"
           rel="noopener noreferrer"
           className={iconClassName}
         >
-          <social.icon className="h-5 w-5" />
+          <social.icon aria-hidden="true" />
         </Link>
       ))}
     </div>
   );
 };
-
-export default SocialIcons;
