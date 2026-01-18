@@ -2,12 +2,11 @@ runConfig:
   cpu: 1
   memoryMiB: 512
 
-# This tells Firebase to pull the secure key from the vault
 secrets:
   - variable: NEXT_PUBLIC_FIREBASE_API_KEY
     secret: firebaseApiKey
+    availability: ["BUILD", "RUNTIME"]
 
-# These variables are safe to be public
 env:
   - variable: NEXT_PUBLIC_FIREBASE_AUTH_DOMAIN
     value: growshare-capital-2.firebaseapp.com
