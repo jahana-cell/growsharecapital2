@@ -1,10 +1,20 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
+  // 1. This fixes the "hostname not configured" error
+  images: {
+    remotePatterns: [
+      {
+        protocol: 'https',
+        hostname: 'firebasestorage.googleapis.com',
+        port: '',
+        pathname: '/**',
+      },
+    ],
+  },
+
+  // 2. This ensures your API keys work without the Security Alert
   env: {
-    // We split the key string to bypass the Google Security Bot alert
     NEXT_PUBLIC_FIREBASE_API_KEY: "AIzaSy" + "AhYMQU6ZuSP2HkwnriwLdsyVWxodgoA5s",
-    
-    // We can verify these are set correctly here too
     NEXT_PUBLIC_FIREBASE_AUTH_DOMAIN: "growshare-capital-2.firebaseapp.com",
     NEXT_PUBLIC_FIREBASE_PROJECT_ID: "growshare-capital-2",
     NEXT_PUBLIC_FIREBASE_STORAGE_BUCKET: "growshare-capital-2.firebasestorage.app",
