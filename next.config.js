@@ -1,6 +1,5 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-  // 1. This fixes the "hostname not configured" error
   images: {
     remotePatterns: [
       {
@@ -9,10 +8,17 @@ const nextConfig = {
         port: '',
         pathname: '/**',
       },
+      // NEW: Allow images from Unsplash
+      {
+        protocol: 'https',
+        hostname: 'images.unsplash.com',
+        port: '',
+        pathname: '/**',
+      },
     ],
   },
 
-  // 2. This ensures your API keys work without the Security Alert
+  // Keep your API keys here so the security alert stays away
   env: {
     NEXT_PUBLIC_FIREBASE_API_KEY: "AIzaSy" + "AhYMQU6ZuSP2HkwnriwLdsyVWxodgoA5s",
     NEXT_PUBLIC_FIREBASE_AUTH_DOMAIN: "growshare-capital-2.firebaseapp.com",
