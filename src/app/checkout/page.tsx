@@ -4,7 +4,7 @@ import { loadStripe, StripeElementsOptions } from '@stripe/stripe-js';
 import { Elements, PaymentElement, useStripe, useElements } from '@stripe/react-stripe-js';
 import { Card, CardContent } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
-import { CreditCard, Loader2, PartyPopper, Lock, Truck, Store, ShoppingCart, CheckCircle2 } from 'lucide-react';
+import { CreditCard, Loader2, PartyPopper, Lock, Truck, Store, ShoppingCart } from 'lucide-react';
 import { useState } from 'react';
 import { createCheckoutPaymentIntent } from './actions';
 import { motion } from 'framer-motion';
@@ -18,7 +18,6 @@ import Link from 'next/link';
 import { RadioGroup, RadioGroupItem } from '@/components/ui/radio-group';
 import { Alert, AlertDescription, AlertTitle } from '@/components/ui/alert';
 
-// Initialize Stripe outside component
 const stripePromise = loadStripe(process.env.NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY!);
 
 const FadeIn = ({ children, delay = 0 }: { children: React.ReactNode, delay?: number }) => (
@@ -77,6 +76,7 @@ const CheckoutForm = ({ clientSecret, email, setPaymentSuccess, totalCharge }: {
 
   return (
     <form onSubmit={handleSubmit} className="space-y-6 mt-6">
+      {/* FIX: Removed 'appearance' prop from here. It is handled by the parent <Elements> provider. */}
       <PaymentElement options={{ layout: 'tabs' }} />
       
       <Button 
@@ -92,7 +92,7 @@ const CheckoutForm = ({ clientSecret, email, setPaymentSuccess, totalCharge }: {
   );
 };
 
-// --- Types & Config ---
+// --- Config ---
 interface ShippingInfo {
   line1: string;
   line2: string | null;
@@ -117,7 +117,7 @@ const pickupLocations: Record<string, { name: string; address: string; city: str
   }
 };
 
-// --- Main Page Component ---
+// --- Main Page ---
 export default function CheckoutPage() {
   const { cartItems, cartTotal, cartCount, cartType } = useCart();
   const [name, setName] = useState('');
@@ -176,25 +176,32 @@ export default function CheckoutPage() {
     setShipping(prev => ({ ...prev, [e.target.name]: e.target.value }));
   }
 
+  // --- STYLING CONFIGURATION ---
+  // The appearance object must be defined here, passed to <Elements>
   const options: StripeElementsOptions | undefined = clientSecret ? {
     clientSecret,
     appearance: {
       theme: 'stripe',
-      variables: { colorPrimary: '#000000', fontFamily: 'inherit' }
+      variables: {
+        colorPrimary: '#000000',
+        fontFamily: 'inherit',
+        spacingUnit: '4px',
+        borderRadius: '0px',
+      }
     },
   } : undefined;
 
-  // --- Success State ---
+  // Success State
   if (paymentSuccess) {
     return (
       <div className="min-h-screen bg-background flex items-center justify-center p-6">
-        <Card className="max-w-md w-full border-none shadow-2xl text-center p-10">
-          <div className="w-20 h-20 bg-primary/10 rounded-full flex items-center justify-center mx-auto mb-6">
+        <Card className="max-w-md w-full border-none shadow-2xl text-center p-12 bg-white">
+          <div className="w-24 h-24 bg-primary/5 rounded-full flex items-center justify-center mx-auto mb-8">
             <PartyPopper className="w-10 h-10 text-primary" />
           </div>
-          <h2 className="text-3xl font-serif mb-4">Order Confirmed</h2>
-          <p className="text-muted-foreground mb-8">Thank you for your purchase. A receipt has been sent to your email.</p>
-          <Button asChild className="w-full h-12 uppercase tracking-widest text-xs font-bold">
+          <h2 className="text-4xl font-serif mb-4">Order Confirmed</h2>
+          <p className="text-muted-foreground mb-10 text-lg font-light">Thank you. Your order has been placed successfully.</p>
+          <Button asChild className="w-full h-14 rounded-none uppercase tracking-widest text-xs font-bold">
             <Link href="/shop">Continue Shopping</Link>
           </Button>
         </Card>
@@ -204,120 +211,122 @@ export default function CheckoutPage() {
 
   return (
     <div className="bg-background min-h-screen font-sans">
-      
-      {/* Header */}
-      <header className="py-8 border-b border-border">
+      <header className="py-8 border-b border-border bg-white sticky top-0 z-50">
         <div className="container mx-auto px-6 flex items-center justify-between">
-           <Link href="/shop" className="text-xs uppercase tracking-widest font-bold text-muted-foreground hover:text-foreground transition-colors flex items-center gap-2">
+           <Link href="/shop" className="text-xs uppercase tracking-widest font-bold text-muted-foreground hover:text-foreground transition-colors flex items-center gap-3">
              <CreditCard className="w-4 h-4"/> Secure Checkout
            </Link>
            <Lock className="w-4 h-4 text-muted-foreground"/>
         </div>
       </header>
 
-      <main className="container mx-auto px-4 md:px-6 py-12">
+      <main className="container mx-auto px-4 md:px-6 py-12 lg:py-20">
         <div className="grid lg:grid-cols-12 gap-12 lg:gap-24 items-start">
           
-          {/* LEFT COLUMN: Customer & Shipping Details */}
-          <div className="lg:col-span-7 space-y-12">
+          {/* LEFT: Forms */}
+          <div className="lg:col-span-7 space-y-16">
             {!clientSecret ? (
               <FadeIn>
-                <form onSubmit={handleCustomerSubmit} className="space-y-12">
+                <form onSubmit={handleCustomerSubmit} className="space-y-16">
                   
-                  {/* Delivery Method */}
+                  {/* Delivery */}
                   <section>
-                    <h3 className="text-lg font-serif font-medium mb-6">1. Delivery Method</h3>
-                    <RadioGroup value={deliveryMethod} onValueChange={setDeliveryMethod} className="grid grid-cols-2 gap-4">
-                      <Label htmlFor="shipping" className={`flex flex-col items-center justify-center border p-6 cursor-pointer hover:bg-muted/30 transition-all ${deliveryMethod === 'shipping' ? 'border-primary bg-primary/5' : 'border-border'}`}>
-                        <RadioGroupItem value="shipping" id="shipping" className="sr-only" />
-                        <Truck className="mb-3 h-6 w-6 text-foreground" />
-                        <span className="text-xs uppercase tracking-widest font-bold">Shipping</span>
-                      </Label>
-                      <Label htmlFor="pickup" className={`flex flex-col items-center justify-center border p-6 cursor-pointer hover:bg-muted/30 transition-all ${deliveryMethod === 'pickup' ? 'border-primary bg-primary/5' : 'border-border'}`}>
+                    <h3 className="text-2xl font-serif mb-8 flex items-center gap-3"><span className="text-primary/40 font-sans text-lg">01.</span> Delivery Method</h3>
+                    <RadioGroup value={deliveryMethod} onValueChange={setDeliveryMethod} className="grid grid-cols-2 gap-6">
+                      <Label htmlFor="pickup" className={`flex flex-col items-center justify-center border p-8 cursor-pointer transition-all duration-300 ${deliveryMethod === 'pickup' ? 'border-primary ring-1 ring-primary bg-primary/5' : 'border-border hover:border-primary/50'}`}>
                         <RadioGroupItem value="pickup" id="pickup" className="sr-only" />
-                        <Store className="mb-3 h-6 w-6 text-foreground" />
+                        <Store className="mb-4 h-6 w-6" />
                         <span className="text-xs uppercase tracking-widest font-bold">Local Pickup</span>
+                      </Label>
+                      <Label htmlFor="shipping" className={`flex flex-col items-center justify-center border p-8 cursor-pointer transition-all duration-300 ${deliveryMethod === 'shipping' ? 'border-primary ring-1 ring-primary bg-primary/5' : 'border-border hover:border-primary/50'}`}>
+                        <RadioGroupItem value="shipping" id="shipping" className="sr-only" />
+                        <Truck className="mb-4 h-6 w-6" />
+                        <span className="text-xs uppercase tracking-widest font-bold">Shipping</span>
                       </Label>
                     </RadioGroup>
 
                     {deliveryMethod === 'pickup' && pickupLocation && (
-                      <Alert className="mt-6 bg-muted/30 border-primary/20">
-                        <Store className="h-4 w-4" />
-                        <AlertTitle className="font-bold">{pickupLocation.name}</AlertTitle>
-                        <AlertDescription className="text-xs text-muted-foreground mt-1">
-                          {pickupLocation.address}, {pickupLocation.city}
-                        </AlertDescription>
-                      </Alert>
+                      <motion.div initial={{ opacity: 0, height: 0 }} animate={{ opacity: 1, height: 'auto' }} className="overflow-hidden">
+                        <Alert className="mt-8 bg-muted/20 border-primary/20 rounded-none border-l-2">
+                          <Store className="h-4 w-4 text-primary" />
+                          <AlertTitle className="font-bold uppercase tracking-wider text-xs">Pickup Location</AlertTitle>
+                          <AlertDescription className="text-sm text-muted-foreground mt-2 font-serif">
+                            <span className="block text-foreground text-lg mb-1">{pickupLocation.name}</span>
+                            {pickupLocation.address}, {pickupLocation.city}
+                          </AlertDescription>
+                        </Alert>
+                      </motion.div>
                     )}
                   </section>
 
-                  {/* Contact Info */}
+                  {/* Contact */}
                   <section>
-                    <h3 className="text-lg font-serif font-medium mb-6">2. Contact Information</h3>
-                    <div className="grid md:grid-cols-2 gap-6">
-                      <div className="space-y-2">
-                        <Label htmlFor="name" className="text-[10px] uppercase tracking-wider text-muted-foreground font-bold">Full Name</Label>
-                        <Input id="name" value={name} onChange={e => setName(e.target.value)} required className="h-12 border-border focus:border-primary rounded-none" placeholder="Jane Doe" />
+                    <h3 className="text-2xl font-serif mb-8 flex items-center gap-3"><span className="text-primary/40 font-sans text-lg">02.</span> Your Details</h3>
+                    <div className="grid md:grid-cols-2 gap-8">
+                      <div className="space-y-3">
+                        <Label htmlFor="name" className="text-[10px] uppercase tracking-wider font-bold text-muted-foreground">Full Name</Label>
+                        <Input id="name" value={name} onChange={e => setName(e.target.value)} required className="h-14 bg-muted/10 border-border focus:border-primary rounded-none text-lg px-4" placeholder="Jane Doe" />
                       </div>
-                      <div className="space-y-2">
-                        <Label htmlFor="email" className="text-[10px] uppercase tracking-wider text-muted-foreground font-bold">Email</Label>
-                        <Input id="email" type="email" value={email} onChange={e => setEmail(e.target.value)} required className="h-12 border-border focus:border-primary rounded-none" placeholder="jane@example.com" />
+                      <div className="space-y-3">
+                        <Label htmlFor="email" className="text-[10px] uppercase tracking-wider font-bold text-muted-foreground">Email Address</Label>
+                        <Input id="email" type="email" value={email} onChange={e => setEmail(e.target.value)} required className="h-14 bg-muted/10 border-border focus:border-primary rounded-none text-lg px-4" placeholder="jane@example.com" />
                       </div>
                     </div>
                   </section>
 
-                  {/* Shipping Address (Conditional) */}
+                  {/* Address */}
                   {deliveryMethod === 'shipping' && (
                     <FadeIn>
-                      <section className="space-y-6">
-                        <h3 className="text-lg font-serif font-medium mb-6">3. Shipping Address</h3>
-                        <div className="space-y-4">
-                          <div className="space-y-2">
-                            <Label className="text-[10px] uppercase tracking-wider text-muted-foreground font-bold">Address</Label>
-                            <Input name="line1" value={shipping.line1} onChange={handleShippingChange} required className="h-12 rounded-none" />
+                      <section className="space-y-8">
+                        <h3 className="text-2xl font-serif mb-8 flex items-center gap-3"><span className="text-primary/40 font-sans text-lg">03.</span> Shipping Address</h3>
+                        <div className="space-y-6">
+                          <div className="space-y-3">
+                            <Label className="text-[10px] uppercase tracking-wider font-bold text-muted-foreground">Street Address</Label>
+                            <Input name="line1" value={shipping.line1} onChange={handleShippingChange} required className="h-14 bg-muted/10 rounded-none px-4" />
                           </div>
-                          <div className="space-y-2">
-                            <Label className="text-[10px] uppercase tracking-wider text-muted-foreground font-bold">Apartment / Suite</Label>
-                            <Input name="line2" value={shipping.line2 || ''} onChange={handleShippingChange} className="h-12 rounded-none" />
+                          <div className="space-y-3">
+                            <Label className="text-[10px] uppercase tracking-wider font-bold text-muted-foreground">Apartment / Suite (Optional)</Label>
+                            <Input name="line2" value={shipping.line2 || ''} onChange={handleShippingChange} className="h-14 bg-muted/10 rounded-none px-4" />
                           </div>
-                          <div className="grid grid-cols-2 gap-4">
-                            <div className="space-y-2">
-                              <Label className="text-[10px] uppercase tracking-wider text-muted-foreground font-bold">City</Label>
-                              <Input name="city" value={shipping.city} onChange={handleShippingChange} required className="h-12 rounded-none" />
+                          <div className="grid grid-cols-2 gap-6">
+                            <div className="space-y-3">
+                              <Label className="text-[10px] uppercase tracking-wider font-bold text-muted-foreground">City</Label>
+                              <Input name="city" value={shipping.city} onChange={handleShippingChange} required className="h-14 bg-muted/10 rounded-none px-4" />
                             </div>
-                            <div className="space-y-2">
-                              <Label className="text-[10px] uppercase tracking-wider text-muted-foreground font-bold">State</Label>
-                              <Input name="state" value={shipping.state} onChange={handleShippingChange} required className="h-12 rounded-none" />
+                            <div className="space-y-3">
+                              <Label className="text-[10px] uppercase tracking-wider font-bold text-muted-foreground">State</Label>
+                              <Input name="state" value={shipping.state} onChange={handleShippingChange} required className="h-14 bg-muted/10 rounded-none px-4" />
                             </div>
                           </div>
-                          <div className="space-y-2">
-                            <Label className="text-[10px] uppercase tracking-wider text-muted-foreground font-bold">ZIP Code</Label>
-                            <Input name="postal_code" value={shipping.postal_code} onChange={handleShippingChange} required className="h-12 rounded-none" />
+                          <div className="space-y-3">
+                            <Label className="text-[10px] uppercase tracking-wider font-bold text-muted-foreground">ZIP Code</Label>
+                            <Input name="postal_code" value={shipping.postal_code} onChange={handleShippingChange} required className="h-14 bg-muted/10 rounded-none px-4" />
                           </div>
                         </div>
                       </section>
                     </FadeIn>
                   )}
 
-                  {error && <p className="text-sm text-destructive font-medium">{error}</p>}
+                  {error && <p className="text-sm text-destructive font-medium border border-destructive/20 bg-destructive/5 p-4 text-center">{error}</p>}
                   
-                  <Button type="submit" disabled={loading || cartCount === 0} className="w-full h-14 bg-primary text-primary-foreground text-xs uppercase tracking-[0.25em] font-bold hover:bg-primary/90 transition-all rounded-none mt-8">
-                    {loading ? <Loader2 className="mr-2 h-4 w-4 animate-spin" /> : "Proceed to Payment"}
+                  <Button type="submit" disabled={loading || cartCount === 0} className="w-full h-16 bg-foreground text-background hover:bg-foreground/90 text-sm uppercase tracking-[0.25em] font-bold rounded-none shadow-xl transition-all hover:scale-[1.01]">
+                    {loading ? <Loader2 className="mr-3 h-5 w-5 animate-spin" /> : "Proceed to Payment"}
                   </Button>
                 </form>
               </FadeIn>
             ) : (
-              /* PAYMENT STEP */
               <FadeIn>
-                <div className="bg-muted/10 border border-border p-8">
-                  <div className="flex justify-between items-center mb-6">
-                    <h3 className="text-lg font-serif font-medium">Payment Details</h3>
-                    <Button variant="ghost" size="sm" onClick={() => setClientSecret(null)} className="text-xs text-muted-foreground hover:text-foreground">Edit Details</Button>
+                <div className="bg-white border border-border p-10 shadow-sm relative">
+                  <div className="absolute top-0 left-0 w-full h-1 bg-primary" />
+                  <div className="flex justify-between items-center mb-8">
+                    <h3 className="text-2xl font-serif">Payment</h3>
+                    <Button variant="ghost" size="sm" onClick={() => setClientSecret(null)} className="text-xs uppercase tracking-wider font-bold text-muted-foreground hover:text-foreground">Change Details</Button>
                   </div>
                   
-                  <div className="mb-8 text-sm space-y-1 text-muted-foreground">
-                    <p><span className="font-bold text-foreground">Customer:</span> {name} ({email})</p>
-                    <p><span className="font-bold text-foreground">Delivery:</span> {deliveryMethod === 'shipping' ? `${shipping.line1}, ${shipping.city}` : pickupLocation?.name}</p>
+                  <div className="mb-10 text-sm space-y-2 pb-8 border-b border-border/50">
+                    <p className="flex justify-between"><span className="text-muted-foreground">Customer:</span> <span className="font-medium">{name}</span></p>
+                    <p className="flex justify-between"><span className="text-muted-foreground">Email:</span> <span className="font-medium">{email}</span></p>
+                    <p className="flex justify-between"><span className="text-muted-foreground">Delivery:</span> <span className="font-medium">{deliveryMethod === 'shipping' ? 'Standard Shipping' : 'Local Pickup'}</span></p>
                   </div>
 
                   {options && (
@@ -335,62 +344,65 @@ export default function CheckoutPage() {
             )}
           </div>
 
-          {/* RIGHT COLUMN: Order Summary (Sticky) */}
+          {/* RIGHT: Order Summary */}
           <div className="lg:col-span-5">
-            <div className="sticky top-12 bg-muted/10 border border-border p-8">
-              <h3 className="font-serif text-2xl mb-8 flex items-center gap-3">Your Order <span className="text-base text-muted-foreground font-sans font-normal">({cartCount})</span></h3>
+            <div className="sticky top-28 bg-[#F9F9F7] border border-border/60 p-10 shadow-sm">
+              <h3 className="font-serif text-3xl mb-8 flex items-baseline justify-between">
+                Your Order 
+                <span className="text-base text-muted-foreground font-sans font-normal">{cartCount} Items</span>
+              </h3>
               
               {cartCount > 0 ? (
                 <>
-                  <div className="space-y-6 max-h-[400px] overflow-y-auto pr-2">
+                  <div className="space-y-6 max-h-[50vh] overflow-y-auto pr-4 scrollbar-thin">
                     {cartItems.map(item => (
-                      <div key={item.id} className="flex gap-4">
-                        <div className="relative w-16 h-16 bg-white border border-border shrink-0">
-                          <Image src={item.image} alt={item.name} fill className="object-cover" />
+                      <div key={item.id} className="flex gap-5 group">
+                        <div className="relative w-20 h-20 bg-white border border-border shrink-0 overflow-hidden">
+                          <Image src={item.image} alt={item.name} fill className="object-cover transition-transform group-hover:scale-105" />
                         </div>
-                        <div className="flex-grow">
-                          <p className="font-medium text-sm text-foreground line-clamp-1">{item.name}</p>
-                          <p className="text-xs text-muted-foreground mt-1">Qty: {item.quantity}</p>
+                        <div className="flex-grow py-1">
+                          <p className="font-serif text-lg leading-tight mb-1">{item.name}</p>
+                          <p className="text-xs uppercase tracking-widest text-muted-foreground">Qty: {item.quantity}</p>
                         </div>
-                        <p className="font-medium text-sm">${(item.quantity * item.price).toFixed(2)}</p>
+                        <p className="font-medium text-lg py-1">${(item.quantity * item.price).toFixed(2)}</p>
                       </div>
                     ))}
                   </div>
 
-                  <Separator className="my-8" />
+                  <Separator className="my-8 opacity-50" />
 
-                  <div className="space-y-3 text-sm">
-                    <div className="flex justify-between text-muted-foreground">
-                      <span>Subtotal</span>
+                  <div className="space-y-4 text-sm font-light">
+                    <div className="flex justify-between">
+                      <span className="text-muted-foreground">Subtotal</span>
                       <span>${cartTotal.toFixed(2)}</span>
                     </div>
-                    <div className="flex justify-between text-muted-foreground">
-                      <span>Shipping</span>
+                    <div className="flex justify-between">
+                      <span className="text-muted-foreground">Shipping</span>
                       <span>{shippingFee === 0 ? 'Free / Pickup' : `$${shippingFee.toFixed(2)}`}</span>
                     </div>
-                    <div className="flex justify-between text-muted-foreground">
-                      <span>Processing</span>
+                    <div className="flex justify-between">
+                      <span className="text-muted-foreground">Processing</span>
                       <span>${processingFee.toFixed(2)}</span>
                     </div>
                     
-                    <Separator className="my-4" />
+                    <Separator className="my-6 opacity-100 bg-foreground/10" />
                     
-                    <div className="flex justify-between items-center text-xl font-serif font-medium text-foreground">
+                    <div className="flex justify-between items-center text-2xl font-serif text-foreground">
                       <span>Total</span>
                       <span>${totalCharge.toFixed(2)}</span>
                     </div>
                   </div>
                   
-                  <div className="mt-8 flex items-center justify-center gap-2 text-[10px] uppercase tracking-widest text-muted-foreground">
-                    <Lock className="w-3 h-3" /> Secure SSL Encryption
+                  <div className="mt-10 flex items-center justify-center gap-2 text-[10px] uppercase tracking-[0.2em] text-muted-foreground/60">
+                    <Lock className="w-3 h-3" /> Encrypted Transaction
                   </div>
                 </>
               ) : (
-                <div className="text-center py-12">
-                  <ShoppingCart className="w-12 h-12 text-muted-foreground mx-auto mb-4 opacity-20" />
-                  <p className="text-muted-foreground mb-4">Your cart is empty.</p>
-                  <Button asChild variant="outline" className="w-full">
-                    <Link href="/shop">Browse Shop</Link>
+                <div className="text-center py-16">
+                  <ShoppingCart className="w-12 h-12 text-muted-foreground/20 mx-auto mb-6" />
+                  <p className="text-muted-foreground mb-8">Your cart is currently empty.</p>
+                  <Button asChild variant="outline" className="w-full h-12 uppercase tracking-widest text-xs font-bold rounded-none">
+                    <Link href="/shop">Return to Shop</Link>
                   </Button>
                 </div>
               )}
