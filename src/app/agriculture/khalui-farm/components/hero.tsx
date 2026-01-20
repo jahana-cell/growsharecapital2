@@ -2,6 +2,7 @@
 
 import { motion } from 'framer-motion';
 import Image from 'next/image';
+import Link from 'next/link';
 import { ArrowLeft, Leaf } from 'lucide-react';
 import { HERO_VIDEO_URL, LOGO_URL, LOGO_TEXT } from '../config';
 
@@ -52,7 +53,7 @@ export function Hero() {
 
                 {/* NAV & INTRO */}
                 <div className="mb-10 text-left flex justify-between items-end">
-                    <a href="/" className="group inline-flex items-center gap-3 md:gap-4 text-[#141F14]/60 hover:text-[#141F14] transition-all duration-500">
+                    <Link href="/" className="group inline-flex items-center gap-3 md:gap-4 text-[#141F14]/60 hover:text-[#141F14] transition-all duration-500">
                         <div className="flex items-center justify-center w-8 h-8 md:w-10 md:h-10 rounded-full border border-[#141F14]/10 bg-white/40 backdrop-blur-xl group-hover:border-[#D4AF37]/50 transition-all">
                             <ArrowLeft className="w-3 h-3 md:w-4 md:h-4 group-hover:-translate-x-1 transition-transform text-[#141F14]" />
                         </div>
@@ -60,7 +61,7 @@ export function Hero() {
                             <span className="text-[6px] md:text-[7px] uppercase tracking-[0.4em] font-bold text-[#D4AF37] mb-0.5 font-sans">Return</span>
                             <span className="text-[9px] md:text-[10px] uppercase tracking-[0.25em] font-medium font-sans">GrowShare Home</span>
                         </div>
-                    </a>
+                    </Link>
                 </div>
 
                 <motion.div initial="hidden" animate="visible" variants={fadeUp} className="text-left">

@@ -33,9 +33,11 @@ export const CartProvider = ({ children }: { children: ReactNode }) => {
     const storedCart = localStorage.getItem('cartItems');
     const storedType = localStorage.getItem('cartType');
     if (storedCart) {
+// eslint-disable-next-line react-hooks/set-state-in-effect
       setCartItems(JSON.parse(storedCart));
     }
     if (storedType) {
+// eslint-disable-next-line react-hooks/set-state-in-effect
       setCartType(storedType as CartType);
     }
   }, []);

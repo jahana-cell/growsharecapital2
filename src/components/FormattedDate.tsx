@@ -1,24 +1,20 @@
 'use client';
 
-import { useState, useEffect } from 'react';
 import { formatInTimeZone } from 'date-fns-tz';
 import { Timestamp } from 'firebase/firestore';
 
 function FormattedDate({ dateValue }: { dateValue: string | Date | Timestamp | null | undefined }) {
-  const [formattedDate, setFormattedDate] = useState('');
-  useEffect(() => {
-    if (!dateValue) {
-      setFormattedDate('');
-      return;
-    }
-    try {
-      const date = dateValue instanceof Timestamp ? dateValue.toDate() : new Date(dateValue);
-      setFormattedDate(formatInTimeZone(date, 'UTC', 'MMMM d, yyyy'));
-    } catch (e) {
-      setFormattedDate('Invalid Date');
-    }
-  }, [dateValue]);
-  return <>{formattedDate}</>;
+  if (!dateValue) {
+    return null;
+  }
+
+  try {
+    const date = dateValue instanceof Timestamp ? dateValue.toDate() : new Date(dateValue);
+    const formattedDate = formatInTimeZone(date, 'UTC', 'MMMM d, yyyy');
+    return <>{formattedDate}</>;
+  } catch (e) {
+    return <>Invalid Date</>;
+  }
 }
 
 export default FormattedDate;

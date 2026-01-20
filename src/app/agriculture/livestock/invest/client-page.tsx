@@ -1,6 +1,6 @@
 'use client';
 
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useMemo } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
 import { loadStripe, StripeElementsOptions } from '@stripe/stripe-js';
@@ -18,7 +18,7 @@ import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
 import { Separator } from '@/components/ui/separator';
 import { Card, CardContent, CardHeader } from '@/components/ui/card';
-import { investmentPhilosophy } from '@/lib/constants';
+
 
 const FadeIn = ({ children, delay = 0 }: { children: React.ReactNode, delay?: number }) => (
   <motion.div
@@ -91,20 +91,17 @@ export default function LivestockInvestmentClientPage() {
     const [paymentSuccess, setPaymentSuccess] = useState(false);
     const [numberOfShares, setNumberOfShares] = useState(1);
     
-    const [investmentAmount, setInvestmentAmount] = useState(0);
-    const [processingFee, setProcessingFee] = useState(0);
-    const [totalCharge, setTotalCharge] = useState(0);
-    
     const [loading, setLoading] = useState(false);
     const [error, setError] = useState<string | null>(null);
 
-    useEffect(() => {
+    const { investmentAmount, processingFee, totalCharge } = useMemo(() => {
         const investment = numberOfShares * 1000;
         const cardFee = (investment * 0.029) + 0.30;
-        
-        setInvestmentAmount(investment);
-        setProcessingFee(cardFee);
-        setTotalCharge(investment + cardFee);
+        return {
+            investmentAmount: investment,
+            processingFee: cardFee,
+            totalCharge: investment + cardFee
+        };
     }, [numberOfShares]);
     
     const handleCustomerSubmit = async (e: React.FormEvent) => {
