@@ -8,10 +8,16 @@ const nextConfig = {
         port: '',
         pathname: '/**',
       },
-      // NEW: Allow images from Unsplash
       {
         protocol: 'https',
         hostname: 'images.unsplash.com',
+        port: '',
+        pathname: '/**',
+      },
+      // NEW: Allow images from Pexels
+      {
+        protocol: 'https',
+        hostname: 'images.pexels.com',
         port: '',
         pathname: '/**',
       },
