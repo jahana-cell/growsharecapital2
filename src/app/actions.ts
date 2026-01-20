@@ -168,7 +168,7 @@ export async function sendPasswordResetEmailAction(prevState: { message: string,
       message: 'If an account exists for this email, a password reset link has been sent.',
       error: null,
     };
-  } catch (error: any) {
+  } catch (error: unknown) {
     console.error('Password reset error:', error);
     return { 
       message: 'If an account exists for this email, a password reset link has been sent.',
@@ -213,7 +213,7 @@ export async function subscribeToNewsletter(prevState: NewsletterFormState, form
     };
   } catch (error) {
     console.error('Error in subscribeToNewsletter:', error);
-    if ((error as any).code === 'permission-denied') {
+    if ((error as { code?: string }).code === 'permission-denied') {
         return {
             message: 'You do not have permission to perform this action.',
             error: 'server',
