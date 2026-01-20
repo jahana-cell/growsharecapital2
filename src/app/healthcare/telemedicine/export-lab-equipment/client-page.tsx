@@ -6,7 +6,7 @@ import Link from "next/link";
 import { motion, useScroll, useTransform } from "framer-motion";
 import { 
   ArrowLeft, Droplets, Globe, TrendingUp, 
-  Factory, ShieldCheck, Container, FileText
+  Factory, ShieldCheck, Container, FileText, ArrowRight 
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Separator } from "@/components/ui/separator";

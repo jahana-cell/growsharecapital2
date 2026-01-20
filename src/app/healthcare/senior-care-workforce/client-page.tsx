@@ -1,11 +1,11 @@
-''''use client';
+'use client';
 
 import { useRef } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { motion, useScroll, useTransform } from "framer-motion";
 import { 
-  ArrowLeft, Users, Building, ArrowRight,
+  ArrowLeft, Users, Building, 
   Heart, Award, TrendingUp, 
   HandHeart, BookOpen
 } from "lucide-react";
@@ -247,4 +247,3 @@ export default function SeniorCareClientPage() {
         </div>
     );
 }
-'''
