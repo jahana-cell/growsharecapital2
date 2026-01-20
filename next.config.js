@@ -14,10 +14,22 @@ const nextConfig = {
         port: '',
         pathname: '/**',
       },
-      // NEW: Allow images from Pexels
       {
         protocol: 'https',
         hostname: 'images.pexels.com',
+        port: '',
+        pathname: '/**',
+      },
+      {
+        protocol: 'https',
+        hostname: 'i.pinimg.com',
+        port: '',
+        pathname: '/**',
+      },
+      // NEW: Allow images from Imgur
+      {
+        protocol: 'https',
+        hostname: 'i.imgur.com',
         port: '',
         pathname: '/**',
       },
